@@ -14,7 +14,7 @@ import {
   Sprout
 } from 'lucide-react';
 
-const OnboardingWizard = ({ user, onComplete, onSkip }) => {
+const OnboardingWizard = ({ user, onComplete, onSkip, onLogout }) => {
   const steps = [
     {
       title: 'Bem-vindo!',
@@ -87,6 +87,7 @@ const OnboardingWizard = ({ user, onComplete, onSkip }) => {
       onComplete={handleComplete}
       showProgress={true}
       className="min-h-screen"
+      onCancel={onLogout} // Usar onCancel para o botão de logout
     />
   );
 };

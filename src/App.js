@@ -145,6 +145,7 @@ function App() {
         user={user} 
         onComplete={handleOnboardingComplete}
         onSkip={handleSkipOnboarding}
+        onLogout={handleLogout}
       />
     );
   }
