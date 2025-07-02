@@ -95,6 +95,18 @@ function App() {
     }
   };
 
+  const handleSkipOnboarding = async () => {
+    console.log("App.js: handleSkipOnboarding - Onboarding pulado.");
+    try {
+      // Marcar onboarding como completo sem dados específicos
+      await saveOnboardingData(user.id, { skipped: true });
+      setShowOnboarding(false);
+    } catch (error) {
+      console.error("App.js: Erro ao pular onboarding:", error);
+      alert("Erro ao pular onboarding. Tente novamente.");
+    }
+  };
+
   const handleNavigate = (tab) => {
     console.log("App.js: handleNavigate - Navegando para:", tab);
     setActiveTab(tab);
@@ -132,6 +144,7 @@ function App() {
       <OnboardingWizard 
         user={user} 
         onComplete={handleOnboardingComplete}
+        onSkip={handleSkipOnboarding}
       />
     );
   }

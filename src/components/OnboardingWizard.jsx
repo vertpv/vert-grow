@@ -14,7 +14,7 @@ import {
   Sprout
 } from 'lucide-react';
 
-const OnboardingWizard = ({ onComplete }) => {
+const OnboardingWizard = ({ user, onComplete, onSkip }) => {
   const steps = [
     {
       title: 'Bem-vindo!',
@@ -26,7 +26,13 @@ const OnboardingWizard = ({ onComplete }) => {
       title: 'Informações Pessoais',
       subtitle: 'Como podemos te chamar?',
       component: PersonalStep,
-      validate: (data) => data.name && data.name.trim().length > 0
+      validate: (data) => {
+        // O nome é obrigatório apenas se o usuário não tiver um nome completo no metadata
+        if (!user?.user_metadata?.full_name) {
+          return data.name && data.name.trim().length > 0;
+        }
+        return true;
+      }
     },
     {
       title: 'Sua Experiência',

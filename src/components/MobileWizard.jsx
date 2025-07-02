@@ -87,10 +87,10 @@ const MobileWizard = ({
             </div>
           </div>
           
-          {allowSkip && !isLastStep && (
+          {allowSkip && (
             <button
               className="btn btn-ghost text-sm"
-              onClick={() => setCurrentStep(steps.length - 1)}
+              onClick={() => onSkip()}
               disabled={isLoading}
             >
               Pular
