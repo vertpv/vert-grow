@@ -2,7 +2,7 @@
   "name": "vert-grow",
   "version": "0.1.0",
   "private": true,
-  "homepage": "/",
+  "homepage": ".",
   "dependencies": {
     "@ant-design/icons": "^6.0.0",
     "@google/generative-ai": "^0.24.1",
