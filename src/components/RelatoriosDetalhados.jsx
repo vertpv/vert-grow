@@ -307,7 +307,7 @@ const RelatoriosDetalhados = ({ user }) => {
   // Carregar dados ao montar o componente
   useEffect(() => {
     carregarDados();
-  }, [carregarDados]);
+  }, [carregarDados, user?.id, filtros.periodo, getAuthHeaders]);
 
   if (loading) {
     return (

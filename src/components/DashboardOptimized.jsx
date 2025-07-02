@@ -212,7 +212,7 @@ const DashboardOptimized = ({ user, onNavigate }) => {
     if (user?.id) {
       loadStats();
     }
-  }, [user?.id, loadStats]);
+  }, [user?.id, loadStats, generateCriticalAlerts, generateSuggestedTasks]);
 
   const generateSuggestedTasks = (plantas, tendas, plantasComProblemas) => {
     const tasks = [];
