@@ -1,0 +1,2432 @@
+import React from 'react';
+
+const CultivoInfo = () => {
+  const cultivoData = {
+    local: "Apartamento em Parnamirim, RN",
+    temperatura_sem_ar: "32 ºC",
+    umidade_media: "55%",
+    controle_climatico: "Ar-condicionado",
+    substrato: "Vasos com 10L cada (solo reutilizado + revitalizado)",
+    rega: "Automática, com solução concentrada diluída",
+    numero_plantas: 12,
+    strains: [
+      { nome: "Banana Blaze", quantidade: 4, origem: "Dutch Passion" },
+      { nome: "Mighty Grape", quantidade: 3, origem: "Freedom of Seeds" },
+      { nome: "CBD Pink Black", quantidade: 3, origem: "Automática – Dentista Seeds" },
+      { nome: "Gorilla Glue", quantidade: 2, origem: "" }
+    ]
+  };
+  return (
+    <div>
+      <div className="card">
+        <div className="card-header">
+          <span className="card-icon">🏠</span>
+          <h2 className="card-title">Dados do Cultivo</h2>
+        </div>
+        
+        <div className="info-grid">
+          <div className="info-item">
+            <span className="info-label">📍 Local</span>
+            <span className="info-value">{cultivoData.local}</span>
+          </div>
+          
+            <span className="info-label">🌡️ Temperatura</span>
+            <span className="info-value">{cultivoData.temperatura_sem_ar}</span>
+            <span className="info-label">💧 Umidade</span>
+            <span className="info-value">{cultivoData.umidade_media}</span>
+            <span className="info-label">❄️ Controle Climático</span>
+            <span className="info-value">{cultivoData.controle_climatico}</span>
+            <span className="info-label">🪴 Substrato</span>
+            <span className="info-value">{cultivoData.substrato}</span>
+            <span className="info-label">💦 Sistema de Rega</span>
+            <span className="info-value">{cultivoData.rega}</span>
+            <span className="info-label">🌱 Total de Plantas</span>
+            <span className="info-value">{cultivoData.numero_plantas}</span>
+      </div>
+          <span className="card-icon">🧬</span>
+          <h2 className="card-title">Strains do Cultivo</h2>
+        <div className="strains-list">
+          {cultivoData.strains.map((strain, index) => (
+            <div key={index} className="strain-item">
+              <div>
+                <div className="strain-name">{strain.nome}</div>
+                {strain.origem && (
+                  <div className="strain-details">{strain.origem}</div>
+                )}
+              </div>
+              <div className="strain-details">
+                <strong>{strain.quantidade}x</strong>
+            </div>
+          ))}
+          <span className="card-icon">💡</span>
+          <h2 className="card-title">Dicas Importantes</h2>
+            <span className="info-label">🛡️ Pulverização Preventiva</span>
+            <span className="info-value">Semanal</span>
+            <span className="info-label">📅 Segunda-feira</span>
+            <span className="info-value">Óleo de neem</span>
+            <span className="info-label">📅 Sexta-feira</span>
+            <span className="info-value">Chá de alho</span>
+            <span className="info-label">🔬 Controle EC/pH</span>
+            <span className="info-value">Medição semanal</span>
+            <span className="info-label">🪤 Controle de Pragas</span>
+            <span className="info-value">Armadilhas amarelas</span>
+    </div>
+  );
+};
+export default CultivoInfo;
+import React from 'react';
+
+const ReceitaConcentrada = () => {
+  const receitaData = {
+    volume_balde_litros: 20,
+    rende_litros: 200,
+    proporcao_diluicao: "1L para 10L de água",
+    ingredientes_base: [
+      { nome: "Sílica", quantidade: 60, unidade: "ml" },
+      { nome: "Sulfato de magnésio", quantidade: 40, unidade: "g" },
+      { nome: "Nitrato de cálcio", quantidade: 60, unidade: "g" },
+      { nome: "Plant Prod", quantidade: 130, unidade: "g" },
+      { nome: "Quelato de ferro + micronutrientes", quantidade: "q.s.", unidade: "" }
+    ],
+    nutrientes_fase: {
+      vegetativa: { nome: "MAP", quantidade: 20, unidade: "g", por_volume_concentrado: "20L" },
+      floracao: { nome: "MKP", quantidade: 40, unidade: "g", por_volume_concentrado: "20L" }
+    }
+  };
+  return (
+    <div>
+      <div className="card">
+        <div className="card-header">
+          <span className="card-icon">🧪</span>
+          <h2 className="card-title">Receita Concentrada Base</h2>
+        </div>
+        
+        <div className="info-grid">
+          <div className="info-item">
+            <span className="info-label">🪣 Volume do Balde</span>
+            <span className="info-value">{receitaData.volume_balde_litros}L</span>
+          </div>
+          
+            <span className="info-label">💧 Rendimento Total</span>
+            <span className="info-value">{receitaData.rende_litros}L</span>
+            <span className="info-label">⚖️ Proporção de Diluição</span>
+            <span className="info-value">{receitaData.proporcao_diluicao}</span>
+      </div>
+          <span className="card-icon">🧬</span>
+          <h2 className="card-title">Ingredientes Base</h2>
+        <div className="recipe-list">
+          {receitaData.ingredientes_base.map((ingrediente, index) => (
+            <div key={index} className="recipe-item">
+              <span className="recipe-name">{ingrediente.nome}</span>
+              <span className="recipe-amount">
+                {ingrediente.quantidade} {ingrediente.unidade}
+              </span>
+            </div>
+          ))}
+          <span className="card-icon">🌱</span>
+          <h2 className="card-title">Nutrientes por Fase</h2>
+        <div style={{ display: 'grid', gap: '1rem' }}>
+          <div style={{ padding: '1rem', background: '#E8F5E8', borderRadius: '8px', borderLeft: '4px solid #4CAF50' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
+              <span className="phase-badge phase-vegetativa">Fase Vegetativa</span>
+            <div className="recipe-item" style={{ background: 'white', margin: 0 }}>
+              <span className="recipe-name">{receitaData.nutrientes_fase.vegetativa.nome}</span>
+                {receitaData.nutrientes_fase.vegetativa.quantidade} {receitaData.nutrientes_fase.vegetativa.unidade}
+            <div style={{ fontSize: '0.8rem', color: '#666', marginTop: '0.5rem' }}>
+              Por {receitaData.nutrientes_fase.vegetativa.por_volume_concentrado} de concentrado
+          <div style={{ padding: '1rem', background: '#FFF3E0', borderRadius: '8px', borderLeft: '4px solid #FF9800' }}>
+              <span className="phase-badge phase-floracao">Fase de Floração</span>
+              <span className="recipe-name">{receitaData.nutrientes_fase.floracao.nome}</span>
+                {receitaData.nutrientes_fase.floracao.quantidade} {receitaData.nutrientes_fase.floracao.unidade}
+              Por {receitaData.nutrientes_fase.floracao.por_volume_concentrado} de concentrado
+          <span className="card-icon">📋</span>
+          <h2 className="card-title">Instruções de Preparo</h2>
+        <div style={{ display: 'grid', gap: '0.75rem' }}>
+          <div style={{ padding: '0.75rem', background: '#f8f8f8', borderRadius: '6px', borderLeft: '4px solid #2196F3' }}>
+            <strong>1.</strong> Adicione todos os ingredientes base no balde de {receitaData.volume_balde_litros}L
+            <strong>2.</strong> Adicione o nutriente específico da fase (MAP ou MKP)
+            <strong>3.</strong> Complete com água até {receitaData.volume_balde_litros}L e misture bem
+            <strong>4.</strong> Para usar: dilua {receitaData.proporcao_diluicao}
+    </div>
+  );
+};
+export default ReceitaConcentrada;
+import React, { useState } from 'react';
+
+const CronogramaFertirrigacao = () => {
+  const [selectedPhase, setSelectedPhase] = useState('vegetativa');
+  const cronogramaData = {
+    fase_vegetativa: [
+      { semana: 1, solucao_final_litros: 4.8, concentrado_litros: 0.5 },
+      { semana: 2, solucao_final_litros: 7.2, concentrado_litros: 0.7 },
+      { semana: 3, solucao_final_litros: 9.6, concentrado_litros: 1.0 },
+      { semana: 4, solucao_final_litros: 12.0, concentrado_litros: 1.2 }
+    ],
+    fase_floracao: [
+      { semana: 5, solucao_final_litros: 12.0, concentrado_litros: 1.2 },
+      { semana: 6, solucao_final_litros: 14.4, concentrado_litros: 1.4 },
+      { semana: 7, solucao_final_litros: 14.4, concentrado_litros: 1.4 },
+      { semana: 8, solucao_final_litros: 16.8, concentrado_litros: 1.7 },
+      { semana: 9, solucao_final_litros: 16.8, concentrado_litros: 1.7 },
+      { semana: 10, solucao_final_litros: 18.0, concentrado_litros: 1.8 },
+      { semana: 11, solucao_final_litros: 18.0, concentrado_litros: 1.8 },
+      { semana: 12, solucao_final_litros: 18.0, concentrado_litros: 1.8 }
+    ]
+  };
+  const getCurrentData = () => {
+    return selectedPhase === 'vegetativa' ? cronogramaData.fase_vegetativa : cronogramaData.fase_floracao;
+  const getPhaseInfo = () => {
+    if (selectedPhase === 'vegetativa') {
+      return {
+        title: '🌱 Fase Vegetativa',
+        subtitle: 'Semanas 1-4',
+        nutrient: 'MAP (20g por 20L)',
+        color: '#4CAF50',
+        bgColor: '#E8F5E8'
+      };
+    } else {
+        title: '🌸 Fase de Floração',
+        subtitle: 'Semanas 5-12',
+        nutrient: 'MKP (40g por 20L)',
+        color: '#FF9800',
+        bgColor: '#FFF3E0'
+    }
+  const phaseInfo = getPhaseInfo();
+  const currentData = getCurrentData();
+  return (
+    <div>
+      <div className="card">
+        <div className="card-header">
+          <span className="card-icon">📅</span>
+          <h2 className="card-title">Cronograma de Fertirrigação</h2>
+        </div>
+        
+        <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem' }}>
+          <button
+            onClick={() => setSelectedPhase('vegetativa')}
+            style={{
+              flex: 1,
+              padding: '0.75rem',
+              border: 'none',
+              borderRadius: '6px',
+              background: selectedPhase === 'vegetativa' ? '#4CAF50' : '#f5f5f5',
+              color: selectedPhase === 'vegetativa' ? 'white' : '#666',
+              fontWeight: '600',
+              cursor: 'pointer',
+              transition: 'all 0.3s ease'
+            }}
+          >
+            🌱 Vegetativa
+          </button>
+            onClick={() => setSelectedPhase('floracao')}
+              background: selectedPhase === 'floracao' ? '#FF9800' : '#f5f5f5',
+              color: selectedPhase === 'floracao' ? 'white' : '#666',
+            🌸 Floração
+        <div style={{ 
+          padding: '1rem', 
+          background: phaseInfo.bgColor, 
+          borderRadius: '8px', 
+          borderLeft: `4px solid ${phaseInfo.color}`,
+          marginBottom: '1rem'
+        }}>
+          <h3 style={{ margin: 0, color: phaseInfo.color, fontSize: '1.1rem' }}>
+            {phaseInfo.title}
+          </h3>
+          <p style={{ margin: '0.25rem 0 0 0', fontSize: '0.9rem', color: '#666' }}>
+            {phaseInfo.subtitle} • Nutriente especial: {phaseInfo.nutrient}
+          </p>
+        <div style={{ overflowX: 'auto' }}>
+          <table className="schedule-table">
+            <thead>
+              <tr>
+                <th>Semana</th>
+                <th>Solução Final</th>
+                <th>Concentrado</th>
+                <th>Água a Adicionar</th>
+              </tr>
+            </thead>
+            <tbody>
+              {currentData.map((item, index) => (
+                <tr key={index}>
+                  <td>
+                    <span className="week-number">Semana {item.semana}</span>
+                  </td>
+                  <td>{item.solucao_final_litros}L</td>
+                  <td style={{ fontWeight: '600', color: phaseInfo.color }}>
+                    {item.concentrado_litros}L
+                  <td>{(item.solucao_final_litros - item.concentrado_litros).toFixed(1)}L</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+      </div>
+          <span className="card-icon">📊</span>
+          <h2 className="card-title">Resumo da Fase</h2>
+        <div className="info-grid">
+          <div className="info-item">
+            <span className="info-label">📈 Total de Semanas</span>
+            <span className="info-value">{currentData.length}</span>
+          </div>
+          
+            <span className="info-label">💧 Total Solução Final</span>
+            <span className="info-value">
+              {currentData.reduce((sum, item) => sum + item.solucao_final_litros, 0).toFixed(1)}L
+            </span>
+            <span className="info-label">🧪 Total Concentrado</span>
+              {currentData.reduce((sum, item) => sum + item.concentrado_litros, 0).toFixed(1)}L
+            <span className="info-label">💦 Média Semanal</span>
+              {(currentData.reduce((sum, item) => sum + item.solucao_final_litros, 0) / currentData.length).toFixed(1)}L
+          <span className="card-icon">💡</span>
+          <h2 className="card-title">Dicas para esta Fase</h2>
+        {selectedPhase === 'vegetativa' ? (
+          <div style={{ display: 'grid', gap: '0.75rem' }}>
+            <div style={{ padding: '0.75rem', background: '#E8F5E8', borderRadius: '6px' }}>
+              <strong>🌱 Crescimento:</strong> Foque no desenvolvimento de folhas e caules
+            </div>
+              <strong>💡 Luz:</strong> 18-24 horas de luz por dia
+              <strong>🧪 Nutriente:</strong> MAP para nitrogênio e fósforo
+        ) : (
+            <div style={{ padding: '0.75rem', background: '#FFF3E0', borderRadius: '6px' }}>
+              <strong>🌸 Floração:</strong> Desenvolvimento de flores e resina
+              <strong>💡 Luz:</strong> 12 horas de luz / 12 horas de escuridão
+              <strong>🧪 Nutriente:</strong> MKP para potássio e fósforo
+        )}
+    </div>
+  );
+};
+export default CronogramaFertirrigacao;
+import React, { useState } from 'react';
+
+const CalculadoraReceita = () => {
+  const [volumeDesejado, setVolumeDesejado] = useState('');
+  const [faseEscolhida, setFaseEscolhida] = useState('vegetativa');
+  const [resultados, setResultados] = useState(null);
+  const receitaBase = {
+    volume_referencia: 20, // 20L de concentrado
+    ingredientes_base: [
+      { nome: "Sílica", quantidade: 60, unidade: "ml" },
+      { nome: "Sulfato de magnésio", quantidade: 40, unidade: "g" },
+      { nome: "Nitrato de cálcio", quantidade: 60, unidade: "g" },
+      { nome: "Plant Prod", quantidade: 130, unidade: "g" },
+      { nome: "Quelato de ferro + micronutrientes", quantidade: "q.s.", unidade: "" }
+    ],
+    nutrientes_fase: {
+      vegetativa: { nome: "MAP", quantidade: 20, unidade: "g" },
+      floracao: { nome: "MKP", quantidade: 40, unidade: "g" }
+    }
+  };
+  const calcularReceita = () => {
+    if (!volumeDesejado || volumeDesejado <= 0) {
+      alert('Por favor, insira um volume válido maior que 0');
+      return;
+    const volume = parseFloat(volumeDesejado);
+    const fator = volume / receitaBase.volume_referencia;
+    const ingredientesCalculados = receitaBase.ingredientes_base.map(ingrediente => {
+      if (ingrediente.quantidade === "q.s.") {
+        return {
+          ...ingrediente,
+          quantidade_calculada: "q.s."
+        };
+      }
+      
+      const quantidadeCalculada = (ingrediente.quantidade * fator).toFixed(2);
+      return {
+        ...ingrediente,
+        quantidade_calculada: quantidadeCalculada
+      };
+    });
+    const nutrienteFase = receitaBase.nutrientes_fase[faseEscolhida];
+    const nutrienteCalculado = {
+      ...nutrienteFase,
+      quantidade_calculada: (nutrienteFase.quantidade * fator).toFixed(2)
+    };
+    const solucaoFinal = volume * 10; // 1L de concentrado rende 10L de solução final
+    const aguaParaDiluir = solucaoFinal - volume;
+    setResultados({
+      volume_concentrado: volume,
+      fase: faseEscolhida,
+      ingredientes: ingredientesCalculados,
+      nutriente_fase: nutrienteCalculado,
+      solucao_final: solucaoFinal,
+      agua_diluir: aguaParaDiluir,
+      fator_calculo: fator
+  const limparCalculos = () => {
+    setVolumeDesejado('');
+    setResultados(null);
+  return (
+    <div>
+      <div className="card">
+        <div className="card-header">
+          <span className="card-icon">🧮</span>
+          <h2 className="card-title">Calculadora de Receita</h2>
+        </div>
+        
+        <div className="calculator-form">
+          <div className="form-group">
+            <label className="form-label">
+              💧 Volume de Concentrado Desejado (Litros)
+            </label>
+            <input
+              type="number"
+              className="form-input"
+              value={volumeDesejado}
+              onChange={(e) => setVolumeDesejado(e.target.value)}
+              placeholder="Ex: 5"
+              min="0.1"
+              step="0.1"
+            />
+          </div>
+              🌱 Fase do Cultivo
+            <select
+              className="form-select"
+              value={faseEscolhida}
+              onChange={(e) => setFaseEscolhida(e.target.value)}
+            >
+              <option value="vegetativa">🌱 Fase Vegetativa (MAP)</option>
+              <option value="floracao">🌸 Fase de Floração (MKP)</option>
+            </select>
+          <div style={{ display: 'flex', gap: '0.5rem' }}>
+            <button
+              className="calculate-button"
+              onClick={calcularReceita}
+              style={{ flex: 1 }}
+              🧮 Calcular Receita
+            </button>
+              onClick={limparCalculos}
+              style={{
+                padding: '1rem',
+                background: '#f5f5f5',
+                color: '#666',
+                border: 'none',
+                borderRadius: '6px',
+                cursor: 'pointer',
+                fontWeight: '600'
+              }}
+              🗑️
+      </div>
+      {resultados && (
+        <>
+          <div className="card">
+            <div className="card-header">
+              <span className="card-icon">📋</span>
+              <h2 className="card-title">Receita Calculada</h2>
+            </div>
+            
+            <div className="results-section">
+              <div className="results-title">
+                📊 Resumo do Cálculo
+              </div>
+              <div className="results-list">
+                <div className="result-item">
+                  <span className="result-name">Volume de Concentrado</span>
+                  <span className="result-amount">{resultados.volume_concentrado}L</span>
+                </div>
+                  <span className="result-name">Solução Final Total</span>
+                  <span className="result-amount">{resultados.solucao_final}L</span>
+                  <span className="result-name">Água para Diluir</span>
+                  <span className="result-amount">{resultados.agua_diluir}L</span>
+                  <span className="result-name">Fase Selecionada</span>
+                  <span className="result-amount">
+                    {resultados.fase === 'vegetativa' ? '🌱 Vegetativa' : '🌸 Floração'}
+                  </span>
+              <span className="card-icon">🧪</span>
+              <h2 className="card-title">Ingredientes Base</h2>
+            <div className="recipe-list">
+              {resultados.ingredientes.map((ingrediente, index) => (
+                <div key={index} className="recipe-item">
+                  <span className="recipe-name">{ingrediente.nome}</span>
+                  <span className="recipe-amount">
+                    {ingrediente.quantidade_calculada} {ingrediente.unidade}
+              ))}
+              <span className="card-icon">🌱</span>
+              <h2 className="card-title">Nutriente da Fase</h2>
+            <div style={{ 
+              padding: '1rem', 
+              background: resultados.fase === 'vegetativa' ? '#E8F5E8' : '#FFF3E0', 
+              borderRadius: '8px', 
+              borderLeft: `4px solid ${resultados.fase === 'vegetativa' ? '#4CAF50' : '#FF9800'}`
+            }}>
+              <div className="recipe-item" style={{ background: 'white', margin: 0 }}>
+                <span className="recipe-name">{resultados.nutriente_fase.nome}</span>
+                <span className="recipe-amount">
+                  {resultados.nutriente_fase.quantidade_calculada} {resultados.nutriente_fase.unidade}
+                </span>
+              <span className="card-icon">📝</span>
+              <h2 className="card-title">Instruções de Preparo</h2>
+            <div style={{ display: 'grid', gap: '0.75rem' }}>
+              <div style={{ padding: '0.75rem', background: '#f8f8f8', borderRadius: '6px', borderLeft: '4px solid #2196F3' }}>
+                <strong>1.</strong> Adicione todos os ingredientes base listados acima
+                <strong>2.</strong> Adicione {resultados.nutriente_fase.quantidade_calculada}{resultados.nutriente_fase.unidade} de {resultados.nutriente_fase.nome}
+                <strong>3.</strong> Complete com água até {resultados.volume_concentrado}L e misture bem
+                <strong>4.</strong> Para usar: dilua 1L de concentrado em 9L de água
+              <div style={{ padding: '0.75rem', background: '#E8F5E8', borderRadius: '6px', borderLeft: '4px solid #4CAF50' }}>
+                <strong>✅ Resultado:</strong> {resultados.solucao_final}L de solução final para rega
+        </>
+      )}
+          <span className="card-icon">💡</span>
+          <h2 className="card-title">Como Usar a Calculadora</h2>
+        <div style={{ display: 'grid', gap: '0.75rem' }}>
+          <div style={{ padding: '0.75rem', background: '#f8f8f8', borderRadius: '6px' }}>
+            <strong>📏 Volume:</strong> Insira quantos litros de concentrado você quer preparar
+            <strong>🌱 Fase:</strong> Escolha se suas plantas estão em vegetativa ou floração
+            <strong>🧮 Cálculo:</strong> A receita será ajustada proporcionalmente
+            <strong>💧 Diluição:</strong> Sempre dilua 1L de concentrado em 9L de água
+    </div>
+  );
+};
+export default CalculadoraReceita;
+import React, { useState, useEffect } from 'react';
+import { API_BASE_URL } from '../config';
+
+const PlantasManager = ({ user }) => {
+  const [plantas, setPlantas] = useState([]);
+  const [tendas, setTendas] = useState([]);
+  const [showAddModal, setShowAddModal] = useState(false);
+  const [showCheckinModal, setShowCheckinModal] = useState(false);
+  const [showMoveModal, setShowMoveModal] = useState(false);
+  const [selectedPlanta, setSelectedPlanta] = useState(null);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    loadPlantas();
+    loadTendas();
+  }, []);
+  const loadPlantas = async () => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/cultivo/plantas`, {
+        credentials: 'include'
+      });
+      if (response.ok) {
+        const data = await response.json();
+        setPlantas(data);
+      }
+    } catch (error) {
+      console.error('Erro ao carregar plantas:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+  const loadTendas = async () => {
+      const response = await fetch(`${API_BASE_URL}/api/cultivo/tendas`, {
+        setTendas(data);
+      console.error('Erro ao carregar tendas:', error);
+  const handleAddPlanta = async (formData) => {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+        loadPlantas();
+        loadTendas();
+        setShowAddModal(false);
+      } else {
+        const error = await response.json();
+        alert(error.error || 'Erro ao adicionar planta');
+      console.error('Erro ao adicionar planta:', error);
+      alert('Erro de conexão');
+  const handleCheckin = async (plantaId, checkinData) => {
+      const response = await fetch(`/api/cultivo/plantas/${plantaId}/checkins`, {
+        body: JSON.stringify(checkinData),
+        setShowCheckinModal(false);
+        setSelectedPlanta(null);
+        alert(error.error || 'Erro ao fazer check-in');
+      console.error('Erro ao fazer check-in:', error);
+  const handleMovePlanta = async (plantaId, novaTendaId) => {
+      const response = await fetch(`/api/cultivo/plantas/${plantaId}/mover-tenda`, {
+        method: 'PUT',
+        body: JSON.stringify({ tenda_id: novaTendaId }),
+        setShowMoveModal(false);
+        alert(error.error || 'Erro ao mover planta');
+      console.error('Erro ao mover planta:', error);
+  const handleDeletePlanta = async (plantaId) => {
+    if (window.confirm('Tem certeza que deseja remover esta planta?')) {
+      try {
+        const response = await fetch(`/api/cultivo/plantas/${plantaId}`, {
+          method: 'DELETE',
+          credentials: 'include'
+        });
+        if (response.ok) {
+          loadPlantas();
+          loadTendas();
+        } else {
+          const error = await response.json();
+          alert(error.error || 'Erro ao remover planta');
+        }
+      } catch (error) {
+        console.error('Erro ao remover planta:', error);
+        alert('Erro de conexão');
+  const getFaseBadgeClass = (fase) => {
+    switch (fase) {
+      case 'germinacao':
+        return 'phase-germinacao';
+      case 'vegetativa':
+        return 'phase-vegetativa';
+      case 'floracao':
+        return 'phase-floracao';
+      default:
+  const getFaseIcon = (fase) => {
+        return '🌰';
+        return '🌱';
+        return '🌸';
+  if (loading) {
+    return (
+      <div className="loading-container">
+        <div className="spinner"></div>
+        <p>Carregando plantas...</p>
+      </div>
+    );
+  }
+  return (
+    <div className="plantas-manager">
+      <div className="card">
+        <div className="card-header">
+          <span className="card-icon">🌱</span>
+          <h2 className="card-title">Gerenciamento de Plantas</h2>
+          <button
+            onClick={() => setShowAddModal(true)}
+            className="add-button"
+          >
+            + Adicionar Planta
+          </button>
+        </div>
+        {plantas.length === 0 ? (
+          <div className="empty-state">
+            <div className="empty-icon">🌱</div>
+            <h3>Nenhuma planta cadastrada</h3>
+            <p>Comece adicionando sua primeira planta para acompanhar o crescimento!</p>
+            <button
+              onClick={() => setShowAddModal(true)}
+              className="btn-primary"
+            >
+              Adicionar primeira planta
+            </button>
+          </div>
+        ) : (
+          <div className="plantas-grid">
+            {plantas.map(planta => (
+              <div key={planta.id} className="planta-card">
+                <div className="planta-header">
+                  <div className="planta-info">
+                    <h3>{planta.strain}</h3>
+                    <span className={`phase-badge ${getFaseBadgeClass(planta.fase_atual)}`}>
+                      {getFaseIcon(planta.fase_atual)} {planta.fase_atual}
+                    </span>
+                  </div>
+                  <div className="planta-actions">
+                    <button
+                      onClick={() => {
+                        setSelectedPlanta(planta);
+                        setShowMoveModal(true);
+                      }}
+                      className="action-btn-small move"
+                      title="Mover para outra tenda"
+                    >
+                      🔄
+                    </button>
+                      onClick={() => handleDeletePlanta(planta.id)}
+                      className="action-btn-small delete"
+                      title="Remover planta"
+                      🗑️
+                </div>
+                <div className="planta-details">
+                  {planta.origem && (
+                    <div className="detail-item">
+                      <span className="detail-icon">🏭</span>
+                      <span>{planta.origem}</span>
+                    </div>
+                  )}
+                  
+                  {planta.data_germinacao && (
+                      <span className="detail-icon">📅</span>
+                      <span>Germinação: {new Date(planta.data_germinacao).toLocaleDateString('pt-BR')}</span>
+                  {planta.data_plantio && (
+                      <span className="detail-icon">🌱</span>
+                      <span>Plantio: {new Date(planta.data_plantio).toLocaleDateString('pt-BR')}</span>
+                  <div className="detail-item">
+                    <span className="detail-icon">⏰</span>
+                    <span>Idade: {planta.idade_dias} dias</span>
+                    <span className="detail-icon">🪴</span>
+                    <span>Vaso: {planta.vaso_litragem}L</span>
+                  {planta.tenda_nome && (
+                      <span className="detail-icon">🏠</span>
+                      <span>Tenda: {planta.tenda_nome}</span>
+                {planta.ultimo_checkin && (
+                  <div className="ultimo-checkin">
+                    <div className="checkin-header">
+                      <strong>Último check-in:</strong>
+                      <span>{new Date(planta.ultimo_checkin.data).toLocaleDateString('pt-BR')}</span>
+                    <div className="checkin-tasks">
+                      {planta.ultimo_checkin.tarefas_concluidas.slice(0, 3).map((tarefa, index) => (
+                        <span key={index} className="task-badge">{tarefa}</span>
+                      ))}
+                    {planta.ultimo_checkin.observacoes && (
+                      <div className="checkin-obs">
+                        💬 {planta.ultimo_checkin.observacoes}
+                      </div>
+                    )}
+                )}
+                <div className="planta-footer">
+                  <button
+                    onClick={() => {
+                      setSelectedPlanta(planta);
+                      setShowCheckinModal(true);
+                    }}
+                    className="checkin-button"
+                  >
+                    ✓ Check-in
+                  </button>
+                  <div className="checkin-count">
+                    {planta.total_checkins} check-ins
+              </div>
+            ))}
+        )}
+      {/* Modal Adicionar Planta */}
+      {showAddModal && (
+        <AddPlantaModal
+          tendas={tendas}
+          onSave={handleAddPlanta}
+          onClose={() => setShowAddModal(false)}
+        />
+      )}
+      {/* Modal Check-in */}
+      {showCheckinModal && selectedPlanta && (
+        <CheckinModal
+          planta={selectedPlanta}
+          onSave={handleCheckin}
+          onClose={() => {
+            setShowCheckinModal(false);
+            setSelectedPlanta(null);
+          }}
+      {/* Modal Mover Planta */}
+      {showMoveModal && selectedPlanta && (
+        <MovePlantaModal
+          onSave={handleMovePlanta}
+            setShowMoveModal(false);
+    </div>
+  );
+};
+// Modal para adicionar planta
+const AddPlantaModal = ({ tendas, onSave, onClose }) => {
+  const [formData, setFormData] = useState({
+    strain: '',
+    origem: '',
+    data_plantio: '',
+    data_germinacao: '2025-07-02', // Data padrão de hoje
+    vaso_litragem: 10,
+    fase_atual: 'germinacao',
+    tenda_id: ''
+  });
+  const strains = [
+    'Banana Blaze',
+    'Mighty Grape',
+    'CBD Pink Black',
+    'Gorilla Glue',
+    'Outro'
+  ];
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSave(formData);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+    <div className="modal-overlay">
+      <div className="modal-content">
+        <h2>Adicionar Nova Planta</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label>🧬 Strain</label>
+            <select
+              name="strain"
+              value={formData.strain}
+              onChange={handleChange}
+              required
+              <option value="">Selecione uma strain</option>
+              {strains.map(strain => (
+                <option key={strain} value={strain}>{strain}</option>
+              ))}
+            </select>
+            <label>📍 Origem/Banco de Sementes</label>
+            <input
+              type="text"
+              name="origem"
+              value={formData.origem}
+              placeholder="Ex: Dutch Passion"
+            />
+            <label>🌰 Data de Germinação</label>
+              type="date"
+              name="data_germinacao"
+              value={formData.data_germinacao}
+            <label>🌱 Data de Plantio (opcional)</label>
+              name="data_plantio"
+              value={formData.data_plantio}
+            <label>🪴 Litragem do Vaso</label>
+              type="number"
+              name="vaso_litragem"
+              value={formData.vaso_litragem}
+              min="1"
+              max="100"
+            <label>🌱 Fase Atual</label>
+              name="fase_atual"
+              value={formData.fase_atual}
+              <option value="germinacao">🌰 Germinação</option>
+              <option value="vegetativa">🌱 Vegetativa</option>
+              <option value="floracao">🌸 Floração</option>
+            <label>🏠 Tenda (opcional)</label>
+              name="tenda_id"
+              value={formData.tenda_id}
+              <option value="">Sem tenda</option>
+              {tendas.map(tenda => (
+                <option 
+                  key={tenda.id} 
+                  value={tenda.id}
+                  disabled={tenda.plantas_disponiveis <= 0}
+                >
+                  {tenda.nome} ({tenda.plantas_disponiveis} vagas)
+                </option>
+          <div className="modal-actions">
+            <button type="button" onClick={onClose} className="btn-secondary">
+              Cancelar
+            <button type="submit" className="btn-primary">
+              Adicionar Planta
+        </form>
+// Modal para check-in
+const CheckinModal = ({ planta, onSave, onClose }) => {
+    data: new Date().toISOString().split('T')[0],
+    tarefas_concluidas: [],
+    observacoes: ''
+  const tarefasDisponiveis = [
+    'rega',
+    'verificacao_pragas',
+    'poda',
+    'lst',
+    'medicao_ph',
+    'fertilizacao',
+    'limpeza_folhas',
+    'troca_vaso',
+    'ajuste_luz'
+    onSave(planta.id, formData);
+  const handleTarefaChange = (tarefa) => {
+      tarefas_concluidas: prev.tarefas_concluidas.includes(tarefa)
+        ? prev.tarefas_concluidas.filter(t => t !== tarefa)
+        : [...prev.tarefas_concluidas, tarefa]
+        <h2>Check-in: {planta.strain}</h2>
+            <label>📅 Data</label>
+              value={formData.data}
+              onChange={(e) => setFormData(prev => ({ ...prev, data: e.target.value }))}
+            <label>✅ Tarefas Realizadas</label>
+            <div className="tarefas-grid">
+              {tarefasDisponiveis.map(tarefa => (
+                <label key={tarefa} className="tarefa-checkbox">
+                  <input
+                    type="checkbox"
+                    checked={formData.tarefas_concluidas.includes(tarefa)}
+                    onChange={() => handleTarefaChange(tarefa)}
+                  />
+                  <span>{tarefa.replace('_', ' ')}</span>
+                </label>
+            </div>
+            <label>💬 Observações</label>
+            <textarea
+              value={formData.observacoes}
+              onChange={(e) => setFormData(prev => ({ ...prev, observacoes: e.target.value }))}
+              placeholder="Estado da planta, problemas, crescimento..."
+              rows="3"
+              Salvar Check-in
+// Modal para mover planta
+const MovePlantaModal = ({ planta, tendas, onSave, onClose }) => {
+  const [novaTendaId, setNovaTendaId] = useState('');
+    onSave(planta.id, novaTendaId || null);
+        <h2>Mover Planta: {planta.strain}</h2>
+        <p>Tenda atual: {planta.tenda_nome || 'Sem tenda'}</p>
+        
+            <label>🏠 Nova Tenda</label>
+              value={novaTendaId}
+              onChange={(e) => setNovaTendaId(e.target.value)}
+                  disabled={tenda.plantas_disponiveis <= 0 && tenda.id !== planta.tenda_id}
+              Mover Planta
+export default PlantasManager;
+import React, { useState, useEffect } from 'react';
+
+const MonitoramentoAmbiental = () => {
+  const [registros, setRegistros] = useState([]);
+  const [showAddForm, setShowAddForm] = useState(false);
+  const [novoRegistro, setNovoRegistro] = useState({
+    data_registro: new Date().toISOString().split('T')[0],
+    temperatura: '',
+    umidade: '',
+    observacoes: ''
+  });
+  // Dados iniciais
+  useEffect(() => {
+    const registrosIniciais = [
+      {
+        id: 'reg_001',
+        semana: 1,
+        data_registro: '2025-07-01',
+        temperatura: 32,
+        umidade: 55,
+        observacoes: 'Condições normais'
+      },
+        id: 'reg_002',
+        semana: 2,
+        data_registro: '2025-06-24',
+        temperatura: 30,
+        umidade: 58,
+        observacoes: 'Umidade um pouco alta'
+      }
+    ];
+    setRegistros(registrosIniciais);
+  }, []);
+  const adicionarRegistro = () => {
+    if (!novoRegistro.temperatura || !novoRegistro.umidade) {
+      alert('Por favor, preencha temperatura e umidade');
+      return;
+    }
+    const registroCompleto = {
+      ...novoRegistro,
+      id: `reg_${Date.now()}`,
+      semana: registros.length + 1,
+      temperatura: parseFloat(novoRegistro.temperatura),
+      umidade: parseFloat(novoRegistro.umidade)
+    };
+    setRegistros([registroCompleto, ...registros]);
+    setNovoRegistro({
+      data_registro: new Date().toISOString().split('T')[0],
+      temperatura: '',
+      umidade: '',
+      observacoes: ''
+    });
+    setShowAddForm(false);
+  };
+  const calcularMedias = () => {
+    if (registros.length === 0) return { temperatura: 0, umidade: 0 };
+    
+    const somaTemp = registros.reduce((sum, reg) => sum + reg.temperatura, 0);
+    const somaUmid = registros.reduce((sum, reg) => sum + reg.umidade, 0);
+    return {
+      temperatura: (somaTemp / registros.length).toFixed(1),
+      umidade: (somaUmid / registros.length).toFixed(1)
+  const getStatusTemperatura = (temp) => {
+    if (temp < 20) return { status: 'baixa', color: '#2196F3', icon: '🥶' };
+    if (temp <= 28) return { status: 'ideal', color: '#4CAF50', icon: '😊' };
+    if (temp <= 32) return { status: 'alta', color: '#FF9800', icon: '🌡️' };
+    return { status: 'muito alta', color: '#F44336', icon: '🔥' };
+  const getStatusUmidade = (umid) => {
+    if (umid < 40) return { status: 'baixa', color: '#FF9800', icon: '🏜️' };
+    if (umid <= 60) return { status: 'ideal', color: '#4CAF50', icon: '😊' };
+    if (umid <= 70) return { status: 'alta', color: '#FF9800', icon: '💧' };
+    return { status: 'muito alta', color: '#F44336', icon: '🌊' };
+  const medias = calcularMedias();
+  return (
+    <div>
+      <div className="card">
+        <div className="card-header">
+          <span className="card-icon">🌡️</span>
+          <h2 className="card-title">Monitoramento Ambiental</h2>
+          <button
+            onClick={() => setShowAddForm(true)}
+            style={{
+              marginLeft: 'auto',
+              padding: '0.5rem 1rem',
+              background: '#4CAF50',
+              color: 'white',
+              border: 'none',
+              borderRadius: '6px',
+              cursor: 'pointer',
+              fontSize: '0.9rem'
+            }}
+          >
+            + Novo Registro
+          </button>
+        </div>
+        {/* Resumo das médias */}
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', 
+          gap: '1rem',
+          marginBottom: '1.5rem'
+        }}>
+          <div style={{
+            padding: '1rem',
+            background: '#E8F5E8',
+            borderRadius: '8px',
+            borderLeft: '4px solid #4CAF50',
+            textAlign: 'center'
+          }}>
+            <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>🌡️</div>
+            <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#2E7D32' }}>
+              {medias.temperatura}°C
+            </div>
+            <div style={{ fontSize: '0.9rem', color: '#666' }}>Temperatura Média</div>
+          </div>
+            background: '#E3F2FD',
+            borderLeft: '4px solid #2196F3',
+            <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>💧</div>
+            <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#1976D2' }}>
+              {medias.umidade}%
+            <div style={{ fontSize: '0.9rem', color: '#666' }}>Umidade Média</div>
+        {/* Lista de registros */}
+        <div style={{ display: 'grid', gap: '1rem' }}>
+          {registros.map((registro) => {
+            const statusTemp = getStatusTemperatura(registro.temperatura);
+            const statusUmid = getStatusUmidade(registro.umidade);
+            
+            return (
+              <div key={registro.id} style={{
+                padding: '1rem',
+                background: '#f8f8f8',
+                borderRadius: '8px',
+                border: '1px solid #e0e0e0'
+              }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
+                      <h4 style={{ margin: 0, color: '#333' }}>
+                        📅 {new Date(registro.data_registro).toLocaleDateString('pt-BR')}
+                      </h4>
+                      <span style={{
+                        padding: '0.25rem 0.5rem',
+                        background: '#E8F5E8',
+                        color: '#2E7D32',
+                        borderRadius: '12px',
+                        fontSize: '0.7rem',
+                        fontWeight: '600'
+                      }}>
+                        Semana {registro.semana}
+                      </span>
+                    </div>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '1rem' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        <span style={{ fontSize: '1.2rem' }}>{statusTemp.icon}</span>
+                        <div>
+                          <div style={{ fontWeight: 'bold', color: statusTemp.color }}>
+                            {registro.temperatura}°C
+                          </div>
+                          <div style={{ fontSize: '0.8rem', color: '#666', textTransform: 'capitalize' }}>
+                            {statusTemp.status}
+                        </div>
+                      </div>
+                        <span style={{ fontSize: '1.2rem' }}>{statusUmid.icon}</span>
+                          <div style={{ fontWeight: 'bold', color: statusUmid.color }}>
+                            {registro.umidade}%
+                            {statusUmid.status}
+                    {registro.observacoes && (
+                      <div style={{
+                        marginTop: '0.5rem',
+                        padding: '0.5rem',
+                        background: 'white',
+                        borderRadius: '4px',
+                        fontSize: '0.9rem',
+                        color: '#666'
+                        <strong>Observações:</strong> {registro.observacoes}
+                    )}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        {registros.length === 0 && (
+          <div style={{ textAlign: 'center', padding: '2rem', color: '#666' }}>
+            Nenhum registro encontrado. Clique em "Novo Registro" para começar.
+        )}
+      </div>
+      {/* Dicas de cultivo */}
+          <span className="card-icon">💡</span>
+          <h2 className="card-title">Dicas de Controle Ambiental</h2>
+        <div style={{ display: 'grid', gap: '0.75rem' }}>
+          <div style={{ padding: '0.75rem', background: '#E8F5E8', borderRadius: '6px', borderLeft: '4px solid #4CAF50' }}>
+            <strong>🌡️ Temperatura Ideal:</strong> 20-28°C durante o dia, 18-24°C durante a noite
+          <div style={{ padding: '0.75rem', background: '#E3F2FD', borderRadius: '6px', borderLeft: '4px solid #2196F3' }}>
+            <strong>💧 Umidade Ideal:</strong> 40-60% (vegetativa), 40-50% (floração)
+          <div style={{ padding: '0.75rem', background: '#FFF3E0', borderRadius: '6px', borderLeft: '4px solid #FF9800' }}>
+            <strong>🌬️ Ventilação:</strong> Essencial para controlar temperatura e umidade
+          <div style={{ padding: '0.75rem', background: '#F3E5F5', borderRadius: '6px', borderLeft: '4px solid #9C27B0' }}>
+            <strong>📊 Monitoramento:</strong> Registre semanalmente para identificar padrões
+      {/* Modal para adicionar registro */}
+      {showAddForm && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'rgba(0,0,0,0.5)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 1000
+            background: 'white',
+            padding: '2rem',
+            width: '90%',
+            maxWidth: '500px',
+            maxHeight: '90vh',
+            overflowY: 'auto'
+            <h3 style={{ margin: '0 0 1rem 0' }}>Novo Registro Ambiental</h3>
+            <div className="calculator-form">
+              <div className="form-group">
+                <label className="form-label">📅 Data do Registro</label>
+                <input
+                  type="date"
+                  className="form-input"
+                  value={novoRegistro.data_registro}
+                  onChange={(e) => setNovoRegistro({ ...novoRegistro, data_registro: e.target.value })}
+                />
+                <label className="form-label">🌡️ Temperatura (°C)</label>
+                  type="number"
+                  value={novoRegistro.temperatura}
+                  onChange={(e) => setNovoRegistro({ ...novoRegistro, temperatura: e.target.value })}
+                  placeholder="Ex: 28"
+                  step="0.1"
+                <label className="form-label">💧 Umidade (%)</label>
+                  value={novoRegistro.umidade}
+                  onChange={(e) => setNovoRegistro({ ...novoRegistro, umidade: e.target.value })}
+                  placeholder="Ex: 55"
+                  min="0"
+                  max="100"
+                <label className="form-label">📝 Observações</label>
+                <textarea
+                  value={novoRegistro.observacoes}
+                  onChange={(e) => setNovoRegistro({ ...novoRegistro, observacoes: e.target.value })}
+                  placeholder="Observações sobre as condições ambientais, ajustes feitos, etc."
+                  rows="3"
+              <div style={{ display: 'flex', gap: '0.5rem', marginTop: '1rem' }}>
+                <button
+                  onClick={adicionarRegistro}
+                  className="calculate-button"
+                  style={{ flex: 1 }}
+                >
+                  Salvar Registro
+                </button>
+                  onClick={() => setShowAddForm(false)}
+                  style={{
+                    padding: '1rem',
+                    background: '#f5f5f5',
+                    color: '#666',
+                    border: 'none',
+                    borderRadius: '6px',
+                    cursor: 'pointer',
+                    fontWeight: '600'
+                  }}
+                  Cancelar
+      )}
+    </div>
+  );
+};
+export default MonitoramentoAmbiental;
+import React, { useState, useEffect } from 'react';
+import { API_BASE_URL } from '../config';
+
+const TendasCultivo = ({ user }) => {
+  const [tendas, setTendas] = useState([]);
+  const [showAddModal, setShowAddModal] = useState(false);
+  const [selectedTenda, setSelectedTenda] = useState(null);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    loadTendas();
+  }, []);
+  const loadTendas = async () => {
+    try {
+      const response = await fetch('${API_BASE_URL}/api/cultivo/tendas', {
+        credentials: 'include'
+      });
+      if (response.ok) {
+        const data = await response.json();
+        setTendas(data);
+      }
+    } catch (error) {
+      console.error('Erro ao carregar tendas:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+  const handleAddTenda = async (formData) => {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+        loadTendas();
+        setShowAddModal(false);
+      } else {
+        const error = await response.json();
+        alert(error.error || 'Erro ao adicionar tenda');
+      console.error('Erro ao adicionar tenda:', error);
+      alert('Erro de conexão');
+  const handleDeleteTenda = async (tendaId) => {
+    if (window.confirm('Tem certeza que deseja remover esta tenda? As plantas serão movidas para "Sem tenda".')) {
+      try {
+        const response = await fetch(`/api/cultivo/tendas/${tendaId}`, {
+          method: 'DELETE',
+          credentials: 'include'
+        });
+        if (response.ok) {
+          loadTendas();
+        } else {
+          const error = await response.json();
+          alert(error.error || 'Erro ao remover tenda');
+        }
+      } catch (error) {
+        console.error('Erro ao remover tenda:', error);
+        alert('Erro de conexão');
+  if (loading) {
+    return (
+      <div className="loading-container">
+        <div className="spinner"></div>
+        <p>Carregando tendas...</p>
+      </div>
+    );
+  }
+  return (
+    <div className="tendas-cultivo">
+      <div className="card">
+        <div className="card-header">
+          <span className="card-icon">🏠</span>
+          <h2 className="card-title">Tendas de Cultivo</h2>
+          <button
+            onClick={() => setShowAddModal(true)}
+            className="add-button"
+          >
+            + Adicionar Tenda
+          </button>
+        </div>
+        {tendas.length === 0 ? (
+          <div className="empty-state">
+            <div className="empty-icon">🏠</div>
+            <h3>Nenhuma tenda cadastrada</h3>
+            <p>Configure suas tendas de cultivo para organizar melhor suas plantas!</p>
+            <button
+              onClick={() => setShowAddModal(true)}
+              className="btn-primary"
+            >
+              Adicionar primeira tenda
+            </button>
+          </div>
+        ) : (
+          <div className="tendas-grid">
+            {tendas.map(tenda => (
+              <TendaCard
+                key={tenda.id}
+                tenda={tenda}
+                onDelete={handleDeleteTenda}
+                onSelect={setSelectedTenda}
+              />
+            ))}
+        )}
+      {/* Modal Adicionar Tenda */}
+      {showAddModal && (
+        <AddTendaModal
+          onSave={handleAddTenda}
+          onClose={() => setShowAddModal(false)}
+        />
+      )}
+      {/* Modal Detalhes da Tenda */}
+      {selectedTenda && (
+        <TendaDetailsModal
+          tenda={selectedTenda}
+          onClose={() => setSelectedTenda(null)}
+    </div>
+  );
+};
+// Componente para cada card de tenda
+const TendaCard = ({ tenda, onDelete, onSelect }) => {
+  const getStatusColor = () => {
+    const ocupacao = (tenda.plantas_ocupadas / tenda.limite_plantas) * 100;
+    if (ocupacao >= 100) return '#F44336'; // Vermelho - lotada
+    if (ocupacao >= 80) return '#FF9800'; // Laranja - quase lotada
+    if (ocupacao >= 50) return '#FFC107'; // Amarelo - meio ocupada
+    return '#4CAF50'; // Verde - com espaço
+  const getStatusText = () => {
+    if (ocupacao >= 100) return 'Lotada';
+    if (ocupacao >= 80) return 'Quase lotada';
+    if (ocupacao >= 50) return 'Meio ocupada';
+    return 'Com espaço';
+    <div className="tenda-card">
+      <div className="tenda-header">
+        <div className="tenda-info">
+          <h3>{tenda.nome}</h3>
+          <span className="tenda-dimensoes">{tenda.dimensoes} cm</span>
+        <div className="tenda-actions">
+            onClick={() => onSelect(tenda)}
+            className="action-btn-small view"
+            title="Ver detalhes"
+            👁️
+            onClick={() => onDelete(tenda.id)}
+            className="action-btn-small delete"
+            title="Remover tenda"
+            🗑️
+      {/* Representação visual da tenda */}
+      <div className="tenda-visual">
+        <TendaVisualization tenda={tenda} />
+      {/* Status de ocupação */}
+      <div className="ocupacao-status">
+        <div className="ocupacao-info">
+          <span className="ocupacao-text">
+            {tenda.plantas_ocupadas}/{tenda.limite_plantas} plantas
+          </span>
+          <span 
+            className="status-badge"
+            style={{ backgroundColor: getStatusColor() }}
+            {getStatusText()}
+        <div className="ocupacao-bar">
+          <div 
+            className="ocupacao-fill"
+            style={{ 
+              width: `${(tenda.plantas_ocupadas / tenda.limite_plantas) * 100}%`,
+              backgroundColor: getStatusColor()
+            }}
+          ></div>
+      {/* Informações da luz */}
+      <div className="luz-info">
+        <div className="luz-item">
+          <span className="luz-icon">💡</span>
+          <span>{tenda.watts}W {tenda.modelo_led}</span>
+          <span className="luz-icon">📊</span>
+          <span>PPFD: {tenda.ppfd_calculado} μmol/m²/s</span>
+          <span className="luz-icon">📏</span>
+          <span>Altura: {tenda.altura_luz}cm</span>
+      {/* Recomendação baseada no PPFD */}
+      <div className="ppfd-recomendacao">
+        <div className={`recomendacao-badge ${tenda.recomendacao_ppfd.classe}`}>
+          {tenda.recomendacao_ppfd.icon} {tenda.recomendacao_ppfd.texto}
+      {/* Lista de plantas na tenda */}
+      {tenda.plantas && tenda.plantas.length > 0 && (
+        <div className="plantas-na-tenda">
+          <h4>🌱 Plantas na tenda:</h4>
+          <div className="plantas-list">
+            {tenda.plantas.map(planta => (
+              <div key={planta.id} className="planta-item">
+                <span className="planta-strain">{planta.strain}</span>
+                <span className={`planta-fase phase-${planta.fase_atual}`}>
+                  {planta.fase_atual}
+                </span>
+              </div>
+// Componente para visualização da tenda
+const TendaVisualization = ({ tenda }) => {
+  const getDimensionScale = () => {
+    const [width, height] = tenda.dimensoes.split('x').map(Number);
+    const maxDimension = Math.max(width, height);
+    const scale = Math.min(200 / maxDimension, 1);
+    return {
+      width: width * scale,
+      height: height * scale,
+      scale
+    };
+  const getPlantPositions = () => {
+    const { width, height } = getDimensionScale();
+    const positions = [];
+    const plantas = tenda.plantas || [];
+    
+    // Calcular posições em grid baseado no limite de plantas
+    const cols = Math.ceil(Math.sqrt(tenda.limite_plantas));
+    const rows = Math.ceil(tenda.limite_plantas / cols);
+    const cellWidth = width / cols;
+    const cellHeight = height / rows;
+    for (let i = 0; i < plantas.length; i++) {
+      const row = Math.floor(i / cols);
+      const col = i % cols;
+      
+      positions.push({
+        x: col * cellWidth + cellWidth / 2,
+        y: row * cellHeight + cellHeight / 2,
+        planta: plantas[i]
+    return positions;
+  const { width, height } = getDimensionScale();
+  const plantPositions = getPlantPositions();
+    <div className="tenda-visualization">
+      <svg width={width + 20} height={height + 20} viewBox={`0 0 ${width + 20} ${height + 20}`}>
+        {/* Contorno da tenda */}
+        <rect
+          x="10"
+          y="10"
+          width={width}
+          height={height}
+          fill="rgba(76, 175, 80, 0.1)"
+          stroke="#4CAF50"
+          strokeWidth="2"
+          rx="4"
+        
+        {/* Grid de posições disponíveis */}
+        {Array.from({ length: tenda.limite_plantas }).map((_, index) => {
+          const cols = Math.ceil(Math.sqrt(tenda.limite_plantas));
+          const rows = Math.ceil(tenda.limite_plantas / cols);
+          const row = Math.floor(index / cols);
+          const col = index % cols;
+          const cellWidth = width / cols;
+          const cellHeight = height / rows;
+          const x = 10 + col * cellWidth + cellWidth / 2;
+          const y = 10 + row * cellHeight + cellHeight / 2;
+          
+          return (
+            <circle
+              key={index}
+              cx={x}
+              cy={y}
+              r="3"
+              fill="rgba(0,0,0,0.1)"
+              stroke="rgba(0,0,0,0.2)"
+              strokeWidth="1"
+            />
+          );
+        })}
+        {/* Plantas */}
+        {plantPositions.map((pos, index) => (
+          <g key={index}>
+              cx={10 + pos.x}
+              cy={10 + pos.y}
+              r="8"
+              fill={pos.planta.fase_atual === 'germinacao' ? '#FFC107' : 
+                   pos.planta.fase_atual === 'vegetativa' ? '#4CAF50' : '#FF9800'}
+              stroke="#333"
+            <text
+              x={10 + pos.x}
+              y={10 + pos.y + 2}
+              textAnchor="middle"
+              fontSize="8"
+              fill="white"
+              {pos.planta.fase_atual === 'germinacao' ? '🌰' : 
+               pos.planta.fase_atual === 'vegetativa' ? '🌱' : '🌸'}
+            </text>
+          </g>
+        ))}
+        {/* Dimensões */}
+        <text
+          x={width / 2 + 10}
+          y={height + 25}
+          textAnchor="middle"
+          fontSize="10"
+          fill="#666"
+        >
+          {tenda.dimensoes} cm
+        </text>
+      </svg>
+// Modal para adicionar tenda
+const AddTendaModal = ({ onSave, onClose }) => {
+  const [formData, setFormData] = useState({
+    nome: '',
+    dimensoes: '80x80',
+    altura: 180,
+    watts: 240,
+    modelo_led: 'LM301h',
+    quantidade_paineis: 1,
+    altura_luz: 60
+  });
+  const dimensoesOpcoes = [
+    '40x40',
+    '60x60', 
+    '80x80',
+    '100x100',
+    '120x120',
+    '150x150'
+  ];
+  const modelosLed = [
+    'LM301h',
+    'LM281b',
+    'LM301b',
+    'Samsung LM301h',
+    'Samsung LM281b',
+    'Bridgelux',
+    'Epistar',
+    'Outro'
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSave(formData);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+    <div className="modal-overlay">
+      <div className="modal-content">
+        <h2>Adicionar Nova Tenda</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label>🏷️ Nome da Tenda</label>
+            <input
+              type="text"
+              name="nome"
+              value={formData.nome}
+              onChange={handleChange}
+              placeholder="Ex: Tenda Principal"
+              required
+            <label>📏 Dimensões</label>
+            <select
+              name="dimensoes"
+              value={formData.dimensoes}
+              {dimensoesOpcoes.map(dim => (
+                <option key={dim} value={dim}>{dim} cm</option>
+              ))}
+            </select>
+            <label>📐 Altura da Tenda (cm)</label>
+              type="number"
+              name="altura"
+              value={formData.altura}
+              min="100"
+              max="300"
+            <label>💡 Potência Total (Watts)</label>
+              name="watts"
+              value={formData.watts}
+              min="50"
+              max="1000"
+            <label>🔬 Modelo do LED</label>
+              name="modelo_led"
+              value={formData.modelo_led}
+              {modelosLed.map(modelo => (
+                <option key={modelo} value={modelo}>{modelo}</option>
+            <label>🔢 Quantidade de Painéis</label>
+              name="quantidade_paineis"
+              value={formData.quantidade_paineis}
+              min="1"
+              max="10"
+            <label>📏 Altura da Luz (cm do topo)</label>
+              name="altura_luz"
+              value={formData.altura_luz}
+              min="20"
+              max="150"
+          <div className="modal-actions">
+            <button type="button" onClick={onClose} className="btn-secondary">
+              Cancelar
+            <button type="submit" className="btn-primary">
+              Adicionar Tenda
+        </form>
+// Modal para detalhes da tenda
+const TendaDetailsModal = ({ tenda, onClose }) => {
+      <div className="modal-content large">
+        <h2>Detalhes: {tenda.nome}</h2>
+        <div className="tenda-details-grid">
+          <div className="details-section">
+            <h3>📏 Especificações</h3>
+            <div className="spec-list">
+              <div className="spec-item">
+                <span className="spec-label">Dimensões:</span>
+                <span className="spec-value">{tenda.dimensoes} cm</span>
+                <span className="spec-label">Altura:</span>
+                <span className="spec-value">{tenda.altura} cm</span>
+                <span className="spec-label">Área:</span>
+                <span className="spec-value">{tenda.area_m2} m²</span>
+                <span className="spec-label">Volume:</span>
+                <span className="spec-value">{tenda.volume_m3} m³</span>
+            </div>
+            <h3>💡 Sistema de Iluminação</h3>
+                <span className="spec-label">Potência:</span>
+                <span className="spec-value">{tenda.watts}W</span>
+                <span className="spec-label">Modelo LED:</span>
+                <span className="spec-value">{tenda.modelo_led}</span>
+                <span className="spec-label">Painéis:</span>
+                <span className="spec-value">{tenda.quantidade_paineis}x</span>
+                <span className="spec-label">Altura da luz:</span>
+                <span className="spec-value">{tenda.altura_luz} cm</span>
+                <span className="spec-label">PPFD calculado:</span>
+                <span className="spec-value">{tenda.ppfd_calculado} μmol/m²/s</span>
+            <h3>🌱 Ocupação</h3>
+            <div className="ocupacao-details">
+              <div className="ocupacao-visual">
+                <TendaVisualization tenda={tenda} />
+              <div className="ocupacao-stats">
+                <div className="stat-item">
+                  <span className="stat-number">{tenda.plantas_ocupadas}</span>
+                  <span className="stat-label">Plantas atuais</span>
+                </div>
+                  <span className="stat-number">{tenda.limite_plantas}</span>
+                  <span className="stat-label">Limite máximo</span>
+                  <span className="stat-number">{tenda.plantas_disponiveis}</span>
+                  <span className="stat-label">Vagas disponíveis</span>
+          {tenda.plantas && tenda.plantas.length > 0 && (
+            <div className="details-section full-width">
+              <h3>🌿 Plantas na Tenda</h3>
+              <div className="plantas-details-grid">
+                {tenda.plantas.map(planta => (
+                  <div key={planta.id} className="planta-detail-card">
+                    <div className="planta-detail-header">
+                      <span className="planta-strain">{planta.strain}</span>
+                      <span className={`phase-badge phase-${planta.fase_atual}`}>
+                        {planta.fase_atual}
+                      </span>
+                    </div>
+                    <div className="planta-detail-info">
+                      <div className="detail-item">
+                        <span>⏰ {planta.idade_dias} dias</span>
+                      </div>
+                        <span>🪴 {planta.vaso_litragem}L</span>
+                  </div>
+                ))}
+          )}
+        <div className="modal-actions">
+          <button onClick={onClose} className="btn-primary">
+            Fechar
+export default TendasCultivo;
+import React, { useState } from 'react';
+import { API_BASE_URL } from '../config';
+
+const Login = ({ onLogin, onSwitchToRegister }) => {
+  const [formData, setFormData] = useState({
+    username: '',
+    password: ''
+  });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      setLoading(true);
+      const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+        credentials: 'include'
+      });   const data = await response.json();
+      if (response.ok) {
+        onLogin(data.user);
+      } else {
+        setError(data.error || 'Erro ao fazer login');
+      }
+    } catch (err) {
+      setError('Erro de conexão. Tente novamente.');
+    } finally {
+      setLoading(false);
+    }
+  return (
+    <div className="auth-container">
+      <div className="auth-card">
+        <div className="auth-header">
+          <h1>🌿 Cultivo Manager</h1>
+          <p>Faça login para gerenciar seu cultivo</p>
+        </div>
+        <form onSubmit={handleSubmit} className="auth-form">
+          {error && (
+            <div className="error-message">
+              {error}
+            </div>
+          )}
+          <div className="form-group">
+            <label htmlFor="username">👤 Usuário</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              value={formData.username}
+              onChange={handleChange}
+              placeholder="Digite seu usuário"
+              required
+              className="form-input"
+            />
+          </div>
+            <label htmlFor="password">🔒 Senha</label>
+              type="password"
+              id="password"
+              name="password"
+              value={formData.password}
+              placeholder="Digite sua senha"
+          <button
+            type="submit"
+            disabled={loading}
+            className="auth-button"
+          >
+            {loading ? 'Entrando...' : 'Entrar'}
+          </button>
+        </form>
+        <div className="auth-footer">
+          <p>Não tem uma conta?</p>
+            onClick={onSwitchToRegister}
+            className="link-button"
+            Criar conta
+      </div>
+    </div>
+  );
+};
+export default Login;
+import React, { useState } from 'react';
+import { API_BASE_URL } from '../config';
+
+const Register = ({ onLogin, onSwitchToLogin }) => {
+  const [formData, setFormData] = useState({
+    username: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+  });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError('');
+    if (formData.password !== formData.confirmPassword) {
+      setError('As senhas não coincidem');
+      setLoading(false);
+      return;
+    }
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/auth/register`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username: formData.username,
+          email: formData.email,
+          password: formData.password
+        }),
+        credentials: 'include'
+      });
+      const data = await response.json();
+      if (response.ok) {
+        onLogin(data.user);
+      } else {
+        setError(data.error || 'Erro ao criar conta');
+      }
+    } catch (err) {
+      setError('Erro de conexão. Tente novamente.');
+    } finally {
+  return (
+    <div className="auth-container">
+      <div className="auth-card">
+        <div className="auth-header">
+          <h1>🌿 Cultivo Manager</h1>
+          <p>Crie sua conta para começar</p>
+        </div>
+        <form onSubmit={handleSubmit} className="auth-form">
+          {error && (
+            <div className="error-message">
+              {error}
+            </div>
+          )}
+          <div className="form-group">
+            <label htmlFor="username">👤 Usuário</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              value={formData.username}
+              onChange={handleChange}
+              placeholder="Escolha um nome de usuário"
+              required
+              className="form-input"
+            />
+          </div>
+            <label htmlFor="email">📧 Email</label>
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              placeholder="Digite seu email"
+            <label htmlFor="password">🔒 Senha</label>
+              type="password"
+              id="password"
+              name="password"
+              value={formData.password}
+              placeholder="Crie uma senha"
+            <label htmlFor="confirmPassword">🔒 Confirmar Senha</label>
+              id="confirmPassword"
+              name="confirmPassword"
+              value={formData.confirmPassword}
+              placeholder="Confirme sua senha"
+          <button
+            type="submit"
+            disabled={loading}
+            className="auth-button"
+          >
+            {loading ? 'Criando conta...' : 'Criar conta'}
+          </button>
+        </form>
+        <div className="auth-footer">
+          <p>Já tem uma conta?</p>
+            onClick={onSwitchToLogin}
+            className="link-button"
+            Fazer login
+      </div>
+    </div>
+  );
+};
+export default Register;
+import React, { useState } from 'react';
+
+const Onboarding = ({ user, onComplete }) => {
+  const [currentStep, setCurrentStep] = useState(0);
+  const steps = [
+    {
+      title: "Bem-vindo ao Cultivo Manager! 🌿",
+      content: (
+        <div className="onboarding-step">
+          <div className="welcome-icon">🎉</div>
+          <h2>Olá, {user.username}!</h2>
+          <p>Parabéns por se juntar ao Cultivo Manager! Vamos te ajudar a configurar tudo para gerenciar seu cultivo indoor de forma profissional.</p>
+          <div className="features-preview">
+            <div className="feature-item">
+              <span className="feature-icon">🌱</span>
+              <span>Gerenciar plantas individualmente</span>
+            </div>
+              <span className="feature-icon">🏠</span>
+              <span>Configurar tendas de cultivo</span>
+              <span className="feature-icon">🌡️</span>
+              <span>Monitorar ambiente</span>
+              <span className="feature-icon">📊</span>
+              <span>Dashboard e relatórios</span>
+          </div>
+        </div>
+      )
+    },
+      title: "Gerenciamento de Plantas 🌱",
+          <div className="step-icon">🌱</div>
+          <h2>Suas Plantas, Seu Controle</h2>
+          <p>Com o Cultivo Manager, você pode:</p>
+          <ul className="feature-list">
+            <li>📝 Cadastrar cada planta com strain, origem e data de plantio</li>
+            <li>📅 Fazer check-ins diários com tarefas e observações</li>
+            <li>📈 Acompanhar o crescimento e desenvolvimento</li>
+            <li>🔄 Gerenciar as fases: Germinação → Vegetativa → Floração</li>
+            <li>🏠 Mover plantas entre diferentes tendas</li>
+          </ul>
+          <div className="tip-box">
+            <strong>💡 Dica:</strong> Comece adicionando suas plantas na aba "🌱 Plantas" e faça check-ins diários para melhores resultados!
+      title: "Tendas de Cultivo 🏠",
+          <div className="step-icon">🏠</div>
+          <h2>Configure Suas Tendas</h2>
+          <p>Gerencie suas tendas com precisão científica:</p>
+            <li>📏 Dimensões predefinidas (40x40 até 150x150 cm)</li>
+            <li>💡 Setup de luz com cálculo automático de PPFD</li>
+            <li>🔧 Modelos de LED (LM301h, LM281b, etc.)</li>
+            <li>📊 Limite de plantas por tenda baseado na área</li>
+            <li>🎯 Recomendações baseadas no PPFD calculado</li>
+            <strong>💡 Dica:</strong> Configure suas tendas na aba "🏠 Tendas" para calcular automaticamente o PPFD ideal!
+      title: "Monitoramento Ambiental 🌡️",
+          <div className="step-icon">🌡️</div>
+          <h2>Controle Total do Ambiente</h2>
+          <p>Mantenha as condições ideais:</p>
+            <li>🌡️ Registre temperatura semanalmente</li>
+            <li>💧 Monitore umidade relativa</li>
+            <li>📊 Veja médias automáticas e status visual</li>
+            <li>📝 Adicione observações sobre condições especiais</li>
+            <li>💡 Receba dicas de controle ambiental</li>
+          <div className="ranges-info">
+            <div className="range-item">
+              <strong>🌡️ Temperatura ideal:</strong> 20-28°C (dia), 18-24°C (noite)
+              <strong>💧 Umidade ideal:</strong> 40-60% (vegetativa), 40-50% (floração)
+      title: "Dashboard e Relatórios 📊",
+          <div className="step-icon">📊</div>
+          <h2>Visão Geral do Seu Cultivo</h2>
+          <p>Acompanhe tudo em um só lugar:</p>
+            <li>📈 Estatísticas gerais (total de plantas, tendas)</li>
+            <li>🌱 Distribuição de plantas por fase</li>
+            <li>📅 Check-ins recentes</li>
+            <li>🌡️ Últimos registros ambientais</li>
+            <li>📄 Exportação de relatórios</li>
+            <strong>💡 Dica:</strong> Use o dashboard para ter uma visão geral rápida do seu cultivo!
+      title: "Pronto para Começar! 🚀",
+          <div className="step-icon">🚀</div>
+          <h2>Você está pronto!</h2>
+          <p>Agora você conhece todas as funcionalidades do Cultivo Manager. Vamos começar?</p>
+          
+          <div className="next-steps">
+            <h3>Próximos passos recomendados:</h3>
+            <ol className="steps-list">
+              <li>🏠 Configure suas tendas de cultivo</li>
+              <li>🌱 Adicione suas plantas (use data de germinação: 02/07/2025)</li>
+              <li>🌡️ Registre as condições ambientais atuais</li>
+              <li>📅 Comece a fazer check-ins diários</li>
+              <li>📊 Acompanhe o progresso no dashboard</li>
+            </ol>
+          <div className="success-message">
+            <strong>🎉 Bem-vindo ao futuro do cultivo indoor!</strong>
+    }
+  ];
+  const nextStep = () => {
+    if (currentStep < steps.length - 1) {
+      setCurrentStep(currentStep + 1);
+    } else {
+      onComplete();
+  };
+  const prevStep = () => {
+    if (currentStep > 0) {
+      setCurrentStep(currentStep - 1);
+  const skipOnboarding = () => {
+    onComplete();
+  return (
+    <div className="onboarding-container">
+      <div className="onboarding-card">
+        <div className="onboarding-header">
+          <div className="progress-bar">
+            <div 
+              className="progress-fill" 
+              style={{ width: `${((currentStep + 1) / steps.length) * 100}%` }}
+            ></div>
+          <div className="step-counter">
+            {currentStep + 1} de {steps.length}
+        <div className="onboarding-content">
+          <h1>{steps[currentStep].title}</h1>
+          {steps[currentStep].content}
+        <div className="onboarding-footer">
+          <div className="button-group">
+            {currentStep > 0 && (
+              <button onClick={prevStep} className="btn-secondary">
+                ← Anterior
+              </button>
+            )}
+            
+            <button onClick={skipOnboarding} className="btn-skip">
+              Pular tutorial
+            </button>
+            <button onClick={nextStep} className="btn-primary">
+              {currentStep === steps.length - 1 ? 'Começar!' : 'Próximo →'}
+      </div>
+    </div>
+  );
+};
+export default Onboarding;
+import React, { useState, useEffect } from 'react';
+import { API_BASE_URL } from '../config';
+
+const Dashboard = ({ user }) => {
+  const [dashboardData, setDashboardData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    loadDashboardData();
+  }, []);
+  const loadDashboardData = async () => {
+    try {
+      const response = await fetch('${API_BASE_URL}/api/cultivo/dashboard', {
+        credentials: 'include'
+      });
+      
+      if (response.ok) {
+        const data = await response.json();
+        setDashboardData(data);
+      }
+    } catch (error) {
+      console.error('Erro ao carregar dashboard:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+  if (loading) {
+    return (
+      <div className="loading-container">
+        <div className="spinner"></div>
+        <p>Carregando dashboard...</p>
+      </div>
+    );
+  }
+  const stats = dashboardData?.estatisticas || {
+    total_plantas: 0,
+    total_tendas: 0,
+    plantas_por_fase: { germinacao: 0, vegetativa: 0, floracao: 0 }
+  return (
+    <div className="dashboard">
+      <div className="card">
+        <div className="card-header">
+          <span className="card-icon">📊</span>
+          <h2 className="card-title">Dashboard</h2>
+        </div>
+        {/* Boas-vindas */}
+        <div className="welcome-section">
+          <h3>Bem-vindo de volta, {user.username}! 👋</h3>
+          <p>Aqui está um resumo do seu cultivo:</p>
+        {/* Estatísticas principais */}
+        <div className="stats-grid">
+          <div className="stat-card">
+            <div className="stat-icon">🌱</div>
+            <div className="stat-content">
+              <div className="stat-number">{stats.total_plantas}</div>
+              <div className="stat-label">Plantas Total</div>
+            </div>
+          </div>
+            <div className="stat-icon">🏠</div>
+              <div className="stat-number">{stats.total_tendas}</div>
+              <div className="stat-label">Tendas Ativas</div>
+            <div className="stat-icon">🌿</div>
+              <div className="stat-number">{stats.plantas_por_fase.vegetativa}</div>
+              <div className="stat-label">Vegetativa</div>
+            <div className="stat-icon">🌸</div>
+              <div className="stat-number">{stats.plantas_por_fase.floracao}</div>
+              <div className="stat-label">Floração</div>
+        {/* Distribuição por fase */}
+        <div className="phase-distribution">
+          <h3>🌱 Distribuição por Fase</h3>
+          <div className="phase-bars">
+            <div className="phase-bar">
+              <div className="phase-info">
+                <span className="phase-badge phase-germinacao">Germinação</span>
+                <span className="phase-count">{stats.plantas_por_fase.germinacao}</span>
+              </div>
+              <div className="progress-bar">
+                <div 
+                  className="progress-fill germinacao" 
+                  style={{ 
+                    width: `${stats.total_plantas > 0 ? (stats.plantas_por_fase.germinacao / stats.total_plantas) * 100 : 0}%` 
+                  }}
+                ></div>
+                <span className="phase-badge phase-vegetativa">Vegetativa</span>
+                <span className="phase-count">{stats.plantas_por_fase.vegetativa}</span>
+                  className="progress-fill vegetativa" 
+                    width: `${stats.total_plantas > 0 ? (stats.plantas_por_fase.vegetativa / stats.total_plantas) * 100 : 0}%` 
+                <span className="phase-badge phase-floracao">Floração</span>
+                <span className="phase-count">{stats.plantas_por_fase.floracao}</span>
+                  className="progress-fill floracao" 
+                    width: `${stats.total_plantas > 0 ? (stats.plantas_por_fase.floracao / stats.total_plantas) * 100 : 0}%` 
+        {/* Último registro ambiental */}
+        {dashboardData?.ultimo_registro_ambiental && (
+          <div className="environmental-status">
+            <h3>🌡️ Condições Ambientais</h3>
+            <div className="env-cards">
+              <div className="env-card">
+                <div className="env-icon">🌡️</div>
+                <div className="env-content">
+                  <div className="env-value">{dashboardData.ultimo_registro_ambiental.temperatura}°C</div>
+                  <div className="env-label">Temperatura</div>
+                  <div className={`env-status ${dashboardData.ultimo_registro_ambiental.status_temperatura.status}`}>
+                    {dashboardData.ultimo_registro_ambiental.status_temperatura.icon} {dashboardData.ultimo_registro_ambiental.status_temperatura.status}
+                  </div>
+                </div>
+                <div className="env-icon">💧</div>
+                  <div className="env-value">{dashboardData.ultimo_registro_ambiental.umidade}%</div>
+                  <div className="env-label">Umidade</div>
+                  <div className={`env-status ${dashboardData.ultimo_registro_ambiental.status_umidade.status}`}>
+                    {dashboardData.ultimo_registro_ambiental.status_umidade.icon} {dashboardData.ultimo_registro_ambiental.status_umidade.status}
+        )}
+        {/* Check-ins recentes */}
+        {dashboardData?.checkins_recentes && dashboardData.checkins_recentes.length > 0 && (
+          <div className="recent-checkins">
+            <h3>📅 Check-ins Recentes</h3>
+            <div className="checkins-list">
+              {dashboardData.checkins_recentes.map((checkin, index) => (
+                <div key={index} className="checkin-item">
+                  <div className="checkin-date">
+                    📅 {new Date(checkin.data).toLocaleDateString('pt-BR')}
+                  <div className="checkin-tasks">
+                    {JSON.parse(checkin.tarefas_concluidas || '[]').slice(0, 3).map((tarefa, i) => (
+                      <span key={i} className="task-badge">{tarefa}</span>
+                    ))}
+                  {checkin.observacoes && (
+                    <div className="checkin-obs">💬 {checkin.observacoes}</div>
+                  )}
+              ))}
+        {/* Ações rápidas */}
+        <div className="quick-actions">
+          <h3>⚡ Ações Rápidas</h3>
+          <div className="action-buttons">
+            <button className="action-btn plants">
+              <span className="action-icon">🌱</span>
+              <span>Adicionar Planta</span>
+            </button>
+            <button className="action-btn tents">
+              <span className="action-icon">🏠</span>
+              <span>Nova Tenda</span>
+            <button className="action-btn environment">
+              <span className="action-icon">🌡️</span>
+              <span>Registrar Ambiente</span>
+            <button className="action-btn calculator">
+              <span className="action-icon">🧮</span>
+              <span>Calcular Receita</span>
+        {/* Dicas do dia */}
+        <div className="daily-tips">
+          <h3>💡 Dica do Dia</h3>
+          <div className="tip-content">
+            <p>
+              <strong>Check-ins diários:</strong> Faça check-ins regulares das suas plantas para acompanhar o desenvolvimento e identificar problemas precocemente. 
+              Registre rega, verificação de pragas, e observações sobre crescimento.
+            </p>
+    </div>
+  );
+};
+export default Dashboard;
+import React, { useState, useEffect } from 'react';
+import { API_BASE_URL } from '../config';
+
+const Relatorios = ({ user }) => {
+  const [relatorioData, setRelatorioData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [activeTab, setActiveTab] = useState('resumo');
+  useEffect(() => {
+    loadRelatorios();
+  }, []);
+  const loadRelatorios = async () => {
+    try {
+      const response = await fetch('${API_BASE_URL}/api/cultivo/relatorios', {
+        credentials: 'include'
+      });
+      
+      if (response.ok) {
+        const data = await response.json();
+        setRelatorioData(data);
+      }
+    } catch (error) {
+      console.error('Erro ao carregar relatórios:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+  const exportarCSV = (dados, nomeArquivo) => {
+    if (!dados || dados.length === 0) {
+      alert('Não há dados para exportar');
+      return;
+    const headers = Object.keys(dados[0]);
+    const csvContent = [
+      headers.join(','),
+      ...dados.map(row => 
+        headers.map(header => {
+          const value = row[header];
+          // Escapar vírgulas e aspas
+          if (typeof value === 'string' && (value.includes(',') || value.includes('"'))) {
+            return `"${value.replace(/"/g, '""')}"`;
+          }
+          return value;
+        }).join(',')
+      )
+    ].join('\n');
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+    link.setAttribute('href', url);
+    link.setAttribute('download', `${nomeArquivo}.csv`);
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  const exportarJSON = (dados, nomeArquivo) => {
+    const jsonContent = JSON.stringify(dados, null, 2);
+    const blob = new Blob([jsonContent], { type: 'application/json' });
+    link.setAttribute('download', `${nomeArquivo}.json`);
+  if (loading) {
+    return (
+      <div className="loading-container">
+        <div className="spinner"></div>
+        <p>Carregando relatórios...</p>
+      </div>
+    );
+  }
+  if (!relatorioData) {
+      <div className="error-state">
+        <h3>Erro ao carregar relatórios</h3>
+        <p>Tente novamente mais tarde.</p>
+  const tabs = [
+    { id: 'resumo', label: '📊 Resumo Geral', icon: '📊' },
+    { id: 'plantas', label: '🌱 Plantas', icon: '🌱' },
+    { id: 'tendas', label: '🏠 Tendas', icon: '🏠' },
+    { id: 'ambiente', label: '🌡️ Ambiente', icon: '🌡️' },
+    { id: 'checkins', label: '📅 Check-ins', icon: '📅' }
+  ];
+  return (
+    <div className="relatorios">
+      <div className="card">
+        <div className="card-header">
+          <span className="card-icon">📈</span>
+          <h2 className="card-title">Relatórios e Exportação</h2>
+          <div className="export-buttons">
+            <button
+              onClick={() => exportarJSON(relatorioData, `cultivo-completo-${new Date().toISOString().split('T')[0]}`)}
+              className="export-btn json"
+            >
+              📄 Exportar JSON
+            </button>
+          </div>
+        </div>
+        <nav className="report-tabs">
+          {tabs.map(tab => (
+              key={tab.id}
+              className={`report-tab ${activeTab === tab.id ? 'active' : ''}`}
+              onClick={() => setActiveTab(tab.id)}
+              <span className="tab-icon">{tab.icon}</span>
+              <span className="tab-label">{tab.label}</span>
+          ))}
+        </nav>
+        <div className="report-content">
+          {activeTab === 'resumo' && (
+            <ResumoGeral data={relatorioData.resumo_geral} strains={relatorioData.strains_stats} />
+          )}
+          
+          {activeTab === 'plantas' && (
+            <Relatorioplantas 
+              plantas={relatorioData.plantas_detalhadas}
+              onExportCSV={exportarCSV}
+            />
+          {activeTab === 'tendas' && (
+            <RelatorioTendas 
+              tendas={relatorioData.tendas_detalhadas}
+          {activeTab === 'ambiente' && (
+            <RelatorioAmbiente 
+              registros={relatorioData.registros_ambientais}
+              dados={relatorioData.dados_ambientais}
+          {activeTab === 'checkins' && (
+            <RelatorioCheckins 
+              checkins={relatorioData.checkins_recentes}
+              stats={relatorioData.checkins_stats}
+    </div>
+  );
+};
+// Componente Resumo Geral
+const ResumoGeral = ({ data, strains }) => {
+    <div className="resumo-geral">
+      <div className="stats-overview">
+        <div className="stat-card">
+          <div className="stat-icon">🌱</div>
+          <div className="stat-content">
+            <div className="stat-number">{data.total_plantas}</div>
+            <div className="stat-label">Total de Plantas</div>
+          <div className="stat-icon">🏠</div>
+            <div className="stat-number">{data.total_tendas}</div>
+            <div className="stat-label">Tendas Ativas</div>
+          <div className="stat-icon">🌡️</div>
+            <div className="stat-number">{data.total_registros_ambientais}</div>
+            <div className="stat-label">Registros Ambientais</div>
+      <div className="phase-distribution">
+        <h3>Distribuição por Fase</h3>
+        <div className="phase-chart">
+          <div className="phase-item">
+            <div className="phase-bar">
+              <div 
+                className="phase-fill germinacao"
+                style={{ width: `${(data.plantas_por_fase.germinacao / data.total_plantas) * 100}%` }}
+              ></div>
+            </div>
+            <div className="phase-info">
+              <span className="phase-label">🌰 Germinação</span>
+              <span className="phase-count">{data.plantas_por_fase.germinacao}</span>
+                className="phase-fill vegetativa"
+                style={{ width: `${(data.plantas_por_fase.vegetativa / data.total_plantas) * 100}%` }}
+              <span className="phase-label">🌱 Vegetativa</span>
+              <span className="phase-count">{data.plantas_por_fase.vegetativa}</span>
+                className="phase-fill floracao"
+                style={{ width: `${(data.plantas_por_fase.floracao / data.total_plantas) * 100}%` }}
+              <span className="phase-label">🌸 Floração</span>
+              <span className="phase-count">{data.plantas_por_fase.floracao}</span>
+      <div className="strains-stats">
+        <h3>Estatísticas por Strain</h3>
+        <div className="strains-grid">
+          {Object.entries(strains).map(([strain, stats]) => (
+            <div key={strain} className="strain-card">
+              <h4>{strain}</h4>
+              <div className="strain-stats">
+                <div className="strain-stat">
+                  <span className="stat-label">Total:</span>
+                  <span className="stat-value">{stats.total}</span>
+                </div>
+                  <span className="stat-label">Idade média:</span>
+                  <span className="stat-value">{stats.idade_media} dias</span>
+                <div className="strain-phases">
+                  <span className="phase-count germinacao">{stats.germinacao}</span>
+                  <span className="phase-count vegetativa">{stats.vegetativa}</span>
+                  <span className="phase-count floracao">{stats.floracao}</span>
+              </div>
+// Componente Relatório de Plantas
+const Relatorioplantas = ({ plantas, onExportCSV }) => {
+  const exportarPlantas = () => {
+    const dadosExport = plantas.map(planta => ({
+      strain: planta.strain,
+      origem: planta.origem || '',
+      fase_atual: planta.fase_atual,
+      data_germinacao: planta.data_germinacao || '',
+      data_plantio: planta.data_plantio || '',
+      idade_dias: planta.idade_dias,
+      vaso_litragem: planta.vaso_litragem,
+      tenda: planta.tenda_nome || 'Sem tenda',
+      total_checkins: planta.total_checkins
+    }));
+    
+    onExportCSV(dadosExport, `plantas-${new Date().toISOString().split('T')[0]}`);
+    <div className="relatorio-plantas">
+      <div className="section-header">
+        <h3>Relatório de Plantas</h3>
+        <button onClick={exportarPlantas} className="export-btn csv">
+          📊 Exportar CSV
+        </button>
+      <div className="plantas-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Strain</th>
+              <th>Fase</th>
+              <th>Idade</th>
+              <th>Vaso</th>
+              <th>Tenda</th>
+              <th>Check-ins</th>
+            </tr>
+          </thead>
+          <tbody>
+            {plantas.map(planta => (
+              <tr key={planta.id}>
+                <td>
+                  <div className="planta-info">
+                    <strong>{planta.strain}</strong>
+                    {planta.origem && <small>{planta.origem}</small>}
+                  </div>
+                </td>
+                  <span className={`phase-badge phase-${planta.fase_atual}`}>
+                    {planta.fase_atual}
+                  </span>
+                <td>{planta.idade_dias} dias</td>
+                <td>{planta.vaso_litragem}L</td>
+                <td>{planta.tenda_nome || 'Sem tenda'}</td>
+                <td>{planta.total_checkins}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+// Componente Relatório de Tendas
+const RelatorioTendas = ({ tendas, onExportCSV }) => {
+  const exportarTendas = () => {
+    const dadosExport = tendas.map(tenda => ({
+      nome: tenda.nome,
+      dimensoes: tenda.dimensoes,
+      altura: tenda.altura,
+      area_m2: tenda.area_m2,
+      volume_m3: tenda.volume_m3,
+      watts: tenda.watts,
+      modelo_led: tenda.modelo_led,
+      ppfd_calculado: tenda.ppfd_calculado,
+      limite_plantas: tenda.limite_plantas,
+      plantas_ocupadas: tenda.plantas_ocupadas,
+      plantas_disponiveis: tenda.plantas_disponiveis
+    onExportCSV(dadosExport, `tendas-${new Date().toISOString().split('T')[0]}`);
+    <div className="relatorio-tendas">
+        <h3>Relatório de Tendas</h3>
+        <button onClick={exportarTendas} className="export-btn csv">
+      <div className="tendas-table">
+              <th>Nome</th>
+              <th>Dimensões</th>
+              <th>Luz</th>
+              <th>PPFD</th>
+              <th>Ocupação</th>
+            {tendas.map(tenda => (
+              <tr key={tenda.id}>
+                  <div className="tenda-info">
+                    <strong>{tenda.nome}</strong>
+                    <small>{tenda.area_m2} m² • {tenda.volume_m3} m³</small>
+                <td>{tenda.dimensoes} cm</td>
+                  <div className="luz-info">
+                    <div>{tenda.watts}W {tenda.modelo_led}</div>
+                    <small>{tenda.quantidade_paineis}x painéis</small>
+                <td>{tenda.ppfd_calculado} μmol/m²/s</td>
+                  <div className="ocupacao-info">
+                    <div>{tenda.plantas_ocupadas}/{tenda.limite_plantas}</div>
+                    <div className="ocupacao-bar-small">
+                      <div 
+                        className="ocupacao-fill-small"
+                        style={{ width: `${(tenda.plantas_ocupadas / tenda.limite_plantas) * 100}%` }}
+                      ></div>
+                    </div>
+// Componente Relatório Ambiente
+const RelatorioAmbiente = ({ registros, dados, onExportCSV }) => {
+  const exportarAmbiente = () => {
+    const dadosExport = registros.map(registro => ({
+      data_registro: registro.data_registro,
+      temperatura: registro.temperatura,
+      umidade: registro.umidade,
+      observacoes: registro.observacoes || ''
+    onExportCSV(dadosExport, `ambiente-${new Date().toISOString().split('T')[0]}`);
+    <div className="relatorio-ambiente">
+        <h3>Relatório Ambiental</h3>
+        <button onClick={exportarAmbiente} className="export-btn csv">
+      {dados.length > 0 && (
+        <div className="ambiente-chart">
+          <h4>Últimos 30 Registros</h4>
+          <div className="chart-container">
+            <SimpleChart dados={dados} />
+      )}
+      <div className="ambiente-table">
+              <th>Data</th>
+              <th>Temperatura</th>
+              <th>Umidade</th>
+              <th>Observações</th>
+            {registros.slice(0, 20).map((registro, index) => (
+              <tr key={index}>
+                <td>{new Date(registro.data_registro).toLocaleDateString('pt-BR')}</td>
+                <td>{registro.temperatura}°C</td>
+                <td>{registro.umidade}%</td>
+                <td>{registro.observacoes || '-'}</td>
+// Componente Relatório Check-ins
+const RelatorioCheckins = ({ checkins, stats, onExportCSV }) => {
+  const exportarCheckins = () => {
+    const dadosExport = checkins.map(checkin => ({
+      data: checkin.data,
+      planta_id: checkin.planta_id,
+      tarefas_concluidas: JSON.parse(checkin.tarefas_concluidas || '[]').join('; '),
+      observacoes: checkin.observacoes || ''
+    onExportCSV(dadosExport, `checkins-${new Date().toISOString().split('T')[0]}`);
+    <div className="relatorio-checkins">
+        <h3>Relatório de Check-ins</h3>
+        <button onClick={exportarCheckins} className="export-btn csv">
+      <div className="checkins-stats">
+          <div className="stat-number">{stats.total_checkins}</div>
+          <div className="stat-label">Total de Check-ins</div>
+          <div className="stat-number">{stats.plantas_com_checkin}</div>
+          <div className="stat-label">Plantas com Check-in</div>
+      <div className="tarefas-mais-comuns">
+        <h4>Tarefas Mais Realizadas</h4>
+        <div className="tarefas-chart">
+          {Object.entries(stats.tarefas_mais_comuns).map(([tarefa, count]) => (
+            <div key={tarefa} className="tarefa-item">
+              <span className="tarefa-nome">{tarefa.replace('_', ' ')}</span>
+              <div className="tarefa-bar">
+                <div 
+                  className="tarefa-fill"
+                  style={{ width: `${(count / Math.max(...Object.values(stats.tarefas_mais_comuns))) * 100}%` }}
+                ></div>
+              <span className="tarefa-count">{count}</span>
+      <div className="checkins-table">
+              <th>Tarefas</th>
+            {checkins.slice(0, 20).map((checkin, index) => (
+                <td>{new Date(checkin.data).toLocaleDateString('pt-BR')}</td>
+                  <div className="tarefas-list">
+                    {JSON.parse(checkin.tarefas_concluidas || '[]').map((tarefa, i) => (
+                      <span key={i} className="task-badge-small">{tarefa}</span>
+                    ))}
+                <td>{checkin.observacoes || '-'}</td>
+// Componente de gráfico simples
+const SimpleChart = ({ dados }) => {
+  if (!dados || dados.length === 0) return null;
+  const maxTemp = Math.max(...dados.map(d => d.temperatura));
+  const minTemp = Math.min(...dados.map(d => d.temperatura));
+  const maxUmid = Math.max(...dados.map(d => d.umidade));
+  const minUmid = Math.min(...dados.map(d => d.umidade));
+    <div className="simple-chart">
+      <div className="chart-legend">
+        <div className="legend-item">
+          <div className="legend-color temp"></div>
+          <span>Temperatura (°C)</span>
+          <div className="legend-color umid"></div>
+          <span>Umidade (%)</span>
+      <div className="chart-area">
+        <svg width="100%" height="200" viewBox="0 0 600 200">
+          {/* Linhas de grade */}
+          {[0, 1, 2, 3, 4].map(i => (
+            <line
+              key={i}
+              x1="50"
+              y1={40 + i * 30}
+              x2="550"
+              y2={40 + i * 30}
+              stroke="#e0e0e0"
+              strokeWidth="1"
+          {/* Linha de temperatura */}
+          <polyline
+            fill="none"
+            stroke="#ff6b6b"
+            strokeWidth="2"
+            points={dados.map((d, i) => {
+              const x = 50 + (i / (dados.length - 1)) * 500;
+              const y = 160 - ((d.temperatura - minTemp) / (maxTemp - minTemp)) * 120;
+              return `${x},${y}`;
+            }).join(' ')}
+          />
+          {/* Linha de umidade */}
+            stroke="#4ecdc4"
+              const y = 160 - ((d.umidade - minUmid) / (maxUmid - minUmid)) * 120;
+        </svg>
+export default Relatorios;

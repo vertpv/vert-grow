@@ -1,0 +1,109 @@
+/* VERT GROW - Clean Minimal Design */
+
+/* Remove all previous styles and use only Tailwind + shadcn/ui */
+
+/* Loading states */
+.loading-container {
+  @apply flex flex-col items-center justify-center min-h-screen bg-background;
+}
+
+.loading-spinner {
+  @apply w-8 h-8 border-4 border-muted border-t-primary rounded-full animate-spin;
+}
+
+/* Navigation */
+.nav-container {
+  @apply border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60;
+}
+
+.nav-content {
+  @apply flex h-14 items-center px-4;
+}
+
+.nav-brand {
+  @apply font-bold text-lg text-foreground;
+}
+
+.nav-menu {
+  @apply flex items-center space-x-4 lg:space-x-6 mx-6;
+}
+
+.nav-item {
+  @apply text-sm font-medium transition-colors hover:text-primary text-muted-foreground;
+}
+
+.nav-item.active {
+  @apply text-foreground;
+}
+
+/* Main layout */
+.main-container {
+  @apply flex min-h-screen;
+}
+
+.sidebar {
+  @apply hidden border-r bg-muted/40 md:block w-64;
+}
+
+.sidebar-content {
+  @apply flex h-full max-h-screen flex-col gap-2 p-4;
+}
+
+.content-area {
+  @apply flex-1 p-6;
+}
+
+/* Page headers */
+.page-header {
+  @apply flex items-center justify-between space-y-2 pb-6;
+}
+
+.page-title {
+  @apply text-3xl font-bold tracking-tight;
+}
+
+/* Cards and content */
+.stats-grid {
+  @apply grid gap-4 md:grid-cols-2 lg:grid-cols-4 mb-6;
+}
+
+.content-grid {
+  @apply grid gap-6 md:grid-cols-2 lg:grid-cols-3;
+}
+
+/* Forms */
+.form-grid {
+  @apply grid gap-4 py-4;
+}
+
+.form-group {
+  @apply grid grid-cols-4 items-center gap-4;
+}
+
+.form-label {
+  @apply text-right text-sm font-medium;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .nav-menu {
+    @apply hidden;
+  }
+  
+  .sidebar {
+    @apply hidden;
+  }
+  
+  .content-area {
+    @apply p-4;
+  }
+  
+  .stats-grid {
+    @apply grid-cols-1;
+  }
+  
+  .content-grid {
+    @apply grid-cols-1;
+  }
+}
+
