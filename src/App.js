@@ -28,8 +28,10 @@ function App() {
 
   useEffect(() => {
     // Verificar se há usuário logado no localStorage
-    const savedUser = localStorage.getItem('vert-grow-user');
-    const savedToken = localStorage.getItem('vert-grow-token');
+    const savedUser = localStorage.getItem("vert-grow-user");
+    const savedToken = localStorage.getItem("vert-grow-token");
+    console.log("App.js: useEffect - savedUser:", savedUser);
+    console.log("App.js: useEffect - savedToken:", savedToken);
     
     if (savedUser && savedToken) {
       try {
