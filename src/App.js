@@ -150,7 +150,25 @@ function App() {
     );
   }
 
-
+  console.log("App.js: Render - Exibindo LayoutAntd com activeTab:", activeTab);
+  return (
+    <LayoutAntd 
+      user={user}
+      activeTab={activeTab}
+      onNavigate={handleNavigate}
+      onLogout={handleLogout}
+    >
+      {activeTab === 'dashboard' && <DashboardOptimized user={user} appData={appData} />}
+      {activeTab === 'plantas' && <PlantasManagerRefactored user={user} updateAppData={updateAppData} />}
+      {activeTab === 'tendas' && <TendasCultivoRefactored user={user} updateAppData={updateAppData} />}
+      {activeTab === 'monitoramento' && <MonitoramentoAmbientalRefactored user={user} updateAppData={updateAppData} />}
+      {activeTab === 'relatorios' && <RelatoriosNew user={user} appData={appData} />}
+      {activeTab === 'relatorios-detalhados' && <RelatoriosDetalhados user={user} appData={appData} />}
+      {activeTab === 'nutricao' && <NutricaoMineral user={user} />}
+      {activeTab === 'calculadora' && <CalculadoraReceita user={user} />}
+    </LayoutAntd>
+  );
+}
 
 export default App;
 

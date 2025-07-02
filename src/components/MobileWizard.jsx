@@ -5,6 +5,7 @@ const MobileWizard = ({
   steps, 
   onComplete, 
   onCancel,
+  onSkip,
   title = 'Wizard',
   showProgress = true,
   allowSkip = false,
