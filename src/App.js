@@ -150,7 +150,7 @@ function App() {
     );
   }
 
-  console.log("App.js: Render - Exibindo LayoutAntd com conteúdo.");
+
 
 export default App;
 
