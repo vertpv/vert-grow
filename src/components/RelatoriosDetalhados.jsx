@@ -92,7 +92,7 @@ const RelatoriosDetalhados = ({ user }) => {
       setPlantas(plantasData);
 
       // Carregar check-ins com filtro de período
-      const checkinsResponse = await fetch(`${SUPABASE_URL}/rest/v1/checkins_planta?user_id=eq.${user.id}&created_at=gte.${dataLimite.toISOString()}&order=created_at.desc&select=*,plantas(strain,fase_atual)`, {
+      const checkinsResponse = await fetch(`${SUPABASE_URL}/rest/v1/checkins_planta?user_id=eq.${user.id}&created_at=gte.${dataLimite.toISOString()}&order=created_at.desc`, {
         headers: headers
       });
       
