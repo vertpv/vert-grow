@@ -27,7 +27,7 @@ function App() {
   });
 
   useEffect(() => {
-    // Verificar se há usuário logado no localStorage
+    console.log("App.js: useEffect - Iniciando verificação de login.");
     const savedUser = localStorage.getItem("vert-grow-user");
     const savedToken = localStorage.getItem("vert-grow-token");
     console.log("App.js: useEffect - savedUser:", savedUser);
@@ -36,69 +36,79 @@ function App() {
     if (savedUser && savedToken) {
       try {
         const userData = JSON.parse(savedUser);
+        console.log("App.js: useEffect - Usuário encontrado no localStorage:", userData);
         setUser(userData);
         checkUserOnboarding(userData.id);
       } catch (error) {
-        console.error('Erro ao carregar dados do usuário:', error);
-        // Limpar dados corrompidos
-        localStorage.removeItem('vert-grow-user');
-        localStorage.removeItem('vert-grow-token');
+        console.error("App.js: Erro ao carregar dados do usuário do localStorage:", error);
+        localStorage.removeItem("vert-grow-user");
+        localStorage.removeItem("vert-grow-token");
         setLoading(false);
       }
     } else {
+      console.log("App.js: useEffect - Nenhum usuário ou token encontrado no localStorage. Exibindo tela de login.");
       setLoading(false);
     }
   }, []);
 
   const checkUserOnboarding = async (userId) => {
+    console.log("App.js: checkUserOnboarding - Verificando status do onboarding para userId:", userId);
     try {
       const hasCompletedOnboarding = await checkOnboardingStatus(userId);
+      console.log("App.js: checkUserOnboarding - hasCompletedOnboarding:", hasCompletedOnboarding);
       setShowOnboarding(!hasCompletedOnboarding);
     } catch (error) {
-      console.error('Erro ao verificar onboarding:', error);
-      setShowOnboarding(true); // Em caso de erro, mostrar onboarding
+      console.error("App.js: Erro ao verificar onboarding:", error);
+      setShowOnboarding(true); // Em caso de erro, mostrar onboarding para garantir que o usuário possa tentar novamente
     } finally {
+      console.log("App.js: checkUserOnboarding - Finalizando carregamento.");
       setLoading(false);
     }
   };
 
   const handleLogin = (userData) => {
+    console.log("App.js: handleLogin - Usuário logado:", userData);
     setUser(userData);
     checkUserOnboarding(userData.id);
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('vert-grow-user');
-    localStorage.removeItem('vert-grow-token');
-    localStorage.removeItem('vert-grow-onboarding');
+    console.log("App.js: handleLogout - Realizando logout.");
+    localStorage.removeItem("vert-grow-user");
+    localStorage.removeItem("vert-grow-token");
+    localStorage.removeItem("vert-grow-onboarding");
     setUser(null);
-    setActiveTab('dashboard');
+    setActiveTab("dashboard");
     setShowOnboarding(false);
-    // Forçar reload da página para limpar cache
     window.location.reload();
   };
 
   const handleOnboardingComplete = async (onboardingData) => {
+    console.log("App.js: handleOnboardingComplete - Onboarding concluído.");
     try {
       await saveOnboardingData(user.id, onboardingData);
       await createInitialData(user.id, onboardingData);
       setShowOnboarding(false);
     } catch (error) {
-      console.error('Erro ao completar onboarding:', error);
-      alert('Erro ao salvar dados do onboarding. Tente novamente.');
+      console.error("App.js: Erro ao completar onboarding:", error);
+      alert("Erro ao salvar dados do onboarding. Tente novamente.");
     }
   };
 
   const handleNavigate = (tab) => {
+    console.log("App.js: handleNavigate - Navegando para:", tab);
     setActiveTab(tab);
   };
 
   const updateAppData = (newData) => {
+    console.log("App.js: updateAppData - Atualizando dados do aplicativo.", newData);
     setAppData(prevData => ({
       ...prevData,
       ...newData
     }));
   };
+
+  console.log("App.js: Render - user:", user, "loading:", loading, "showOnboarding:", showOnboarding);
 
   if (loading) {
     return (
@@ -112,10 +122,12 @@ function App() {
   }
 
   if (!user) {
+    console.log("App.js: Render - Exibindo LoginOptimized.");
     return <LoginOptimized onLogin={handleLogin} />;
   }
 
   if (showOnboarding) {
+    console.log("App.js: Render - Exibindo OnboardingWizard.");
     return (
       <OnboardingWizard 
         user={user} 
@@ -124,63 +136,7 @@ function App() {
     );
   }
 
-  const renderContent = () => {
-    switch (activeTab) {
-      case 'dashboard':
-        return (
-          <DashboardOptimized 
-            user={user} 
-            onNavigate={handleNavigate}
-          />
-        );
-      case 'plantas':
-        return (
-          <PlantasManagerRefactored 
-            user={user} 
-            onDataUpdate={updateAppData}
-          />
-        );
-      case 'tendas':
-        return (
-          <TendasCultivoRefactored 
-            user={user} 
-            onDataUpdate={updateAppData}
-          />
-        );
-      case 'ambiente':
-        return (
-          <MonitoramentoAmbientalRefactored 
-            user={user} 
-            onDataUpdate={updateAppData}
-          />
-        );
-      case 'relatorios':
-        return <RelatoriosDetalhados user={user} />;
-      case 'nutricao':
-        return <NutricaoMineral user={user} />;
-      case 'calculadora':
-        return <CalculadoraReceita user={user} />;
-      default:
-        return (
-          <DashboardOptimized 
-            user={user} 
-            onNavigate={handleNavigate}
-          />
-        );
-    }
-  };
-
-  return (
-    <LayoutAntd 
-      user={user} 
-      activeTab={activeTab} 
-      onTabChange={setActiveTab}
-      onLogout={handleLogout}
-    >
-      {renderContent()}
-    </LayoutAntd>
-  );
-}
+  console.log("App.js: Render - Exibindo LayoutAntd com conteúdo.");
 
 export default App;
 
