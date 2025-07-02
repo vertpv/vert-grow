@@ -1,70 +1,228 @@
-# Getting Started with Create React App
+# 🌱 VERT GROW
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Sistema Inteligente de Gestão de Cultivo**
 
-## Available Scripts
+[![React](https://img.shields.io/badge/React-18.2.0-blue.svg)](https://reactjs.org/)
+[![Supabase](https://img.shields.io/badge/Supabase-Database-green.svg)](https://supabase.com/)
+[![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black.svg)](https://vercel.com/)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-In the project directory, you can run:
+> Uma aplicação web moderna e responsiva para gestão completa de cultivos, com check-ins inteligentes, relatórios detalhados e interface otimizada para mobile.
 
-### `npm start`
+## 🚀 **Demo**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**🌐 Aplicação Online:** [https://cultivo-manager-app.vercel.app/](https://cultivo-manager-app.vercel.app/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## ✨ **Funcionalidades Principais**
 
-### `npm test`
+### 📊 **Dashboard Inteligente**
+- Visão geral do cultivo em tempo real
+- Últimos check-ins com detalhes das atividades
+- Estatísticas por fase de crescimento
+- Alertas e recomendações automáticas
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 🌿 **Gestão de Plantas**
+- Cadastro completo com strain, origem e dados técnicos
+- Check-ins individuais e em lote
+- Acompanhamento por fases (germinação, vegetativa, floração)
+- Histórico detalhado de atividades
 
-### `npm run build`
+### 🏠 **Gestão de Tendas**
+- Configuração de espaços de cultivo
+- Cálculo automático de PPFD (μmol/m²/s)
+- Controle de iluminação e capacidade
+- Organização por ambientes
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 🌡️ **Monitoramento Ambiental**
+- Registro de temperatura e umidade
+- Indicadores visuais para valores ideais
+- Filtros por tenda e período
+- Estatísticas automáticas
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 📈 **Relatórios Detalhados**
+- Análise de frequência de check-ins
+- Tarefas mais realizadas
+- Status por planta com alertas de atraso
+- Recomendações baseadas em dados
+- Insights automáticos do cultivo
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 🎯 **Check-ins Inteligentes**
+- Sistema de tarefas categorizadas (rega, poda, inspeção, etc.)
+- Feedback visual de sucesso/erro
+- Observações detalhadas
+- Histórico completo de atividades
 
-### `npm run eject`
+## 🛠️ **Tecnologias Utilizadas**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### **Frontend**
+- **React 18.2.0** - Framework principal
+- **Ant Design** - Sistema de design e componentes
+- **Lucide React** - Ícones modernos e semânticos
+- **Tailwind CSS** - Estilização utilitária
+- **Bento Grid** - Layout modular e responsivo
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### **Backend & Database**
+- **Supabase** - Backend-as-a-Service
+- **PostgreSQL** - Banco de dados relacional
+- **Row Level Security (RLS)** - Segurança de dados
+- **Real-time subscriptions** - Atualizações em tempo real
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### **Deploy & DevOps**
+- **Vercel** - Deploy automático e CDN
+- **GitHub Actions** - CI/CD (configurável)
+- **Progressive Web App (PWA)** - Experiência mobile nativa
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 📱 **Interface e UX**
 
-## Learn More
+### **Design System**
+- **Material Design** - Componentes consistentes
+- **Mobile First** - Otimizado para dispositivos móveis
+- **Paleta de cores** - Preto/branco com verde para ações
+- **Espaçamento** - Múltiplos de 8px para consistência
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### **Componentes Reutilizáveis**
+- **Modais padronizados** - Sistema de steps com navegação
+- **Bento Cards** - Layout modular para informações
+- **Feedback visual** - Notificações de sucesso/erro
+- **Loading states** - Indicadores de carregamento
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🚀 **Instalação e Configuração**
 
-### Code Splitting
+### **Pré-requisitos**
+- Node.js 18+ 
+- npm ou yarn
+- Conta no Supabase
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### **1. Clone o repositório**
+```bash
+git clone https://github.com/SEU_USUARIO/vert-grow.git
+cd vert-grow
+```
 
-### Analyzing the Bundle Size
+### **2. Instale as dependências**
+```bash
+npm install
+# ou
+yarn install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### **3. Configure o Supabase**
 
-### Making a Progressive Web App
+1. Crie um projeto no [Supabase](https://supabase.com/)
+2. Execute os scripts SQL na pasta `/sql`:
+   - `supabase_schema.sql` - Estrutura das tabelas
+   - `supabase_rls_audit_and_fix_v2.sql` - Políticas de segurança
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+3. Configure as variáveis de ambiente:
+```bash
+# src/components (atualize as constantes)
+SUPABASE_URL=sua_url_do_supabase
+SUPABASE_ANON_KEY=sua_chave_anonima
+```
 
-### Advanced Configuration
+### **4. Execute o projeto**
+```bash
+npm start
+# ou
+yarn start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+A aplicação estará disponível em `http://localhost:3000`
 
-### Deployment
+### **5. Build para produção**
+```bash
+npm run build
+# ou
+yarn build
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 📊 **Estrutura do Banco de Dados**
 
-### `npm run build` fails to minify
+### **Tabelas Principais**
+- `user_profiles` - Perfis de usuários
+- `plantas` - Cadastro de plantas
+- `tendas` - Espaços de cultivo
+- `checkins_planta` - Registros de check-ins
+- `registros_ambientais` - Dados ambientais
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### **Relacionamentos**
+- Usuários → Plantas (1:N)
+- Usuários → Tendas (1:N)
+- Plantas → Check-ins (1:N)
+- Tendas → Registros Ambientais (1:N)
+
+## 🔐 **Segurança**
+
+- **Row Level Security (RLS)** - Isolamento de dados por usuário
+- **Autenticação JWT** - Tokens seguros para API
+- **Validação de entrada** - Sanitização de dados
+- **HTTPS obrigatório** - Comunicação criptografada
+
+## 📈 **Performance**
+
+- **Build otimizado:** 256.54 kB gzipped
+- **Lazy loading** - Carregamento sob demanda
+- **Cache inteligente** - Redução de requisições
+- **Responsive design** - Otimizado para todos os dispositivos
+
+## 🤝 **Contribuindo**
+
+1. Faça um fork do projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. Push para a branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request
+
+### **Padrões de Código**
+- ESLint configurado
+- Prettier para formatação
+- Commits semânticos
+- Componentes funcionais com hooks
+
+## 📝 **Roadmap**
+
+### **Versão 2.0**
+- [ ] Integração com IoT para sensores automáticos
+- [ ] Notificações push baseadas em IA
+- [ ] Marketplace de strains com recomendações
+- [ ] Relatórios PDF exportáveis
+- [ ] Modo offline com sincronização
+
+### **Versão 2.1**
+- [ ] Integração com Google Gemini AI (preparado)
+- [ ] Calendário de cultivo automatizado
+- [ ] Análise de imagens para detecção de problemas
+- [ ] Sistema de gamificação
+
+## 🐛 **Problemas Conhecidos**
+
+- [ ] Cache agressivo em alguns navegadores (workaround implementado)
+- [ ] Limitação de 10MB para uploads de imagens
+- [ ] Suporte limitado para IE11
+
+## 📄 **Licença**
+
+Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
+
+## 👥 **Equipe**
+
+- **Desenvolvimento:** VERT GROW Team
+- **Design:** Material Design System
+- **Backend:** Supabase
+
+## 📞 **Suporte**
+
+- **Issues:** [GitHub Issues](https://github.com/SEU_USUARIO/vert-grow/issues)
+- **Documentação:** [Wiki do Projeto](https://github.com/SEU_USUARIO/vert-grow/wiki)
+- **Email:** vertgrow@example.com
+
+---
+
+<div align="center">
+
+**🌱 Feito com ❤️ para a comunidade de cultivadores**
+
+[⭐ Star no GitHub](https://github.com/SEU_USUARIO/vert-grow) • [🐛 Reportar Bug](https://github.com/SEU_USUARIO/vert-grow/issues) • [💡 Sugerir Feature](https://github.com/SEU_USUARIO/vert-grow/issues)
+
+</div>
+
