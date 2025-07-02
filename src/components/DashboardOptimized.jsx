@@ -123,7 +123,7 @@ const DashboardOptimized = ({ user, onNavigate }) => {
 
       // Carregar check-ins com informações das plantas
       console.log('Dashboard: Carregando check-ins...');
-      const checkinsResponse = await fetch(`${SUPABASE_URL}/rest/v1/checkins_planta?user_id=eq.${user.id}&order=created_at.desc&limit=10&select=*,plantas(strain,fase_atual)`, {
+      const checkinsResponse = await fetch(`${SUPABASE_URL}/rest/v1/checkins_planta?user_id=eq.${user.id}&order=created_at.desc&limit=10`, {
         headers: headers
       });
       
