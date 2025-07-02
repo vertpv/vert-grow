@@ -203,6 +203,7 @@ const LoginOptimized = ({ onLogin }) => {
                       prefix={<UserOutlined style={{ color: '#9ca3af' }} />}
                       placeholder="Seu nome completo"
                       style={{ borderRadius: '8px' }}
+                      autocomplete="name"
                     />
                   </Form.Item>
                 )}
@@ -219,6 +220,7 @@ const LoginOptimized = ({ onLogin }) => {
                     prefix={<MailOutlined style={{ color: '#9ca3af' }} />}
                     placeholder="seu@email.com"
                     style={{ borderRadius: '8px' }}
+                    autoComplete="email"
                   />
                 </Form.Item>
 
@@ -235,6 +237,7 @@ const LoginOptimized = ({ onLogin }) => {
                     placeholder="Sua senha"
                     iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
                     style={{ borderRadius: '8px' }}
+                    autoComplete="current-password"
                   />
                 </Form.Item>
 
