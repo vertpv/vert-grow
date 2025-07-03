@@ -1,0 +1,108 @@
+Vercel CLI 44.2.10
+WARN! `--confirm` is deprecated, please use `--yes` instead
+Retrieving project…
+Deploying paulovictorvert-4667s-projects/vert-grow
+Uploading [--------------------] (0.0B/705.5KB)
+Uploading [=====---------------] (177.2KB/705.5KB)
+Uploading [==========----------] (353.2KB/705.5KB)
+Uploading [===============-----] (529.2KB/705.5KB)
+Uploading [====================] (705.5KB/705.5KB)
+Inspect: https://vercel.com/paulovictorvert-4667s-projects/vert-grow/3PHuaeaptsR77G3rj9z4jyrnx3ZR [2s]
+Production: https://vert-grow-b8ylhvahg-paulovictorvert-4667s-projects.vercel.app [2s]
+https://vert-grow-b8ylhvahg-paulovictorvert-4667s-projects.vercel.appQueued
+2025-07-03T04:10:07.372Z  Running build in Washington, D.C., USA (East) – iad1
+2025-07-03T04:10:07.372Z  Build machine configuration: 2 cores, 8 GB
+2025-07-03T04:10:07.390Z  Retrieving list of deployment files...
+2025-07-03T04:10:08.039Z  Downloading 83 deployment files...
+2025-07-03T04:10:08.932Z  Restored build cache from previous deployment (AHt2iKNmK1wtxLiN8QrR2rMQDZPN)
+2025-07-03T04:10:10.004Z  Running "vercel build"
+2025-07-03T04:10:10.435Z  Vercel CLI 44.0.0
+2025-07-03T04:10:11.054Z  Installing dependencies...
+2025-07-03T04:10:13.700Z  
+2025-07-03T04:10:13.701Z  removed 6 packages, and changed 4 packages in 2s
+2025-07-03T04:10:13.702Z  
+2025-07-03T04:10:13.702Z  275 packages are looking for funding
+2025-07-03T04:10:13.702Z    run `npm fund` for details
+2025-07-03T04:10:13.702Z  npm notice
+2025-07-03T04:10:13.703Z  npm notice New major version of npm available! 10.9.2 -> 11.4.2
+2025-07-03T04:10:13.703Z  npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.4.2
+2025-07-03T04:10:13.703Z  npm notice To update run: npm install -g npm@11.4.2
+2025-07-03T04:10:13.705Z  npm notice
+2025-07-03T04:10:13.742Z  Running "npm run build"
+2025-07-03T04:10:14.452Z  
+2025-07-03T04:10:14.452Z  > vert-grow@0.1.0 build
+2025-07-03T04:10:14.452Z  > CI=false react-scripts build
+2025-07-03T04:10:14.452Z  
+2025-07-03T04:10:15.672Z  Creating an optimized production build...
+2025-07-03T04:10:45.244Z  Compiled with warnings.
+2025-07-03T04:10:45.245Z  
+2025-07-03T04:10:45.245Z  [eslint] 
+2025-07-03T04:10:45.246Z  src/components/CheckinLote.jsx
+2025-07-03T04:10:45.246Z    Line 1:27:  'useEffect' is defined but never used  no-unused-vars
+2025-07-03T04:10:45.246Z  
+2025-07-03T04:10:45.246Z  src/components/DashboardOptimized.jsx
+2025-07-03T04:10:45.246Z    Line 7:3:     'BarChart3' is defined but never used                                                                                                                                                                            no-unused-vars
+2025-07-03T04:10:45.247Z    Line 8:3:     'Clock' is defined but never used                                                                                                                                                                                no-unused-vars
+2025-07-03T04:10:45.247Z    Line 9:3:     'Calendar' is defined but never used                                                                                                                                                                             no-unused-vars
+2025-07-03T04:10:45.247Z    Line 14:3:    'Bell' is defined but never used                                                                                                                                                                                 no-unused-vars
+2025-07-03T04:10:45.247Z    Line 16:3:    'Eye' is defined but never used                                                                                                                                                                                  no-unused-vars
+2025-07-03T04:10:45.248Z    Line 209:6:   React Hook useCallback has missing dependencies: 'generateCriticalAlerts' and 'generateSuggestedTasks'. Either include them or remove the dependency array                                                       react-hooks/exhaustive-deps
+2025-07-03T04:10:45.248Z    Line 215:28:  'generateCriticalAlerts' was used before it was defined                                                                                                                                                          no-use-before-define
+2025-07-03T04:10:45.248Z    Line 215:52:  'generateSuggestedTasks' was used before it was defined                                                                                                                                                          no-use-before-define
+2025-07-03T04:10:45.248Z    Line 217:9:   The 'generateSuggestedTasks' function makes the dependencies of useEffect Hook (at line 215) change on every render. To fix this, wrap the definition of 'generateSuggestedTasks' in its own useCallback() Hook  react-hooks/exhaustive-deps
+2025-07-03T04:10:45.249Z    Line 292:9:   The 'generateCriticalAlerts' function makes the dependencies of useEffect Hook (at line 215) change on every render. To fix this, wrap the definition of 'generateCriticalAlerts' in its own useCallback() Hook  react-hooks/exhaustive-deps
+2025-07-03T04:10:45.249Z  
+2025-07-03T04:10:45.249Z  src/components/LayoutAntd.jsx
+2025-07-03T04:10:45.249Z    Line 22:3:  'ToolOutlined' is defined but never used  no-unused-vars
+2025-07-03T04:10:45.250Z  
+2025-07-03T04:10:45.251Z  src/components/MonitoramentoAmbientalRefactored.jsx
+2025-07-03T04:10:45.251Z    Line 9:3:  'Home' is defined but never used  no-unused-vars
+2025-07-03T04:10:45.251Z  
+2025-07-03T04:10:45.251Z  src/components/OnboardingWizard.jsx
+2025-07-03T04:10:45.251Z    Line 11:3:  'Lightbulb' is defined but never used  no-unused-vars
+2025-07-03T04:10:45.251Z  
+2025-07-03T04:10:45.251Z  src/components/PlantasManagerRefactored.jsx
+2025-07-03T04:10:45.252Z    Line 17:59:  'BentoFooter' is defined but never used  no-unused-vars
+2025-07-03T04:10:45.252Z    Line 17:83:  'BentoList' is defined but never used    no-unused-vars
+2025-07-03T04:10:45.252Z  
+2025-07-03T04:10:45.252Z  src/components/RelatoriosDetalhados.jsx
+2025-07-03T04:10:45.252Z    Line 5:3:    'TrendingUp' is defined but never used                                                                                    no-unused-vars
+2025-07-03T04:10:45.253Z    Line 6:3:    'TrendingDown' is defined but never used                                                                                  no-unused-vars
+2025-07-03T04:10:45.253Z    Line 12:3:   'Droplets' is defined but never used                                                                                      no-unused-vars
+2025-07-03T04:10:45.253Z    Line 13:3:   'Scissors' is defined but never used                                                                                      no-unused-vars
+2025-07-03T04:10:45.253Z    Line 14:3:   'Eye' is defined but never used                                                                                           no-unused-vars
+2025-07-03T04:10:45.254Z    Line 15:3:   'FileText' is defined but never used                                                                                      no-unused-vars
+2025-07-03T04:10:45.254Z    Line 16:3:   'Download' is defined but never used                                                                                      no-unused-vars
+2025-07-03T04:10:45.254Z    Line 17:3:   'Filter' is defined but never used                                                                                        no-unused-vars
+2025-07-03T04:10:45.254Z    Line 59:10:  'plantas' is assigned a value but never used                                                                              no-unused-vars
+2025-07-03T04:10:45.254Z    Line 111:6:  React Hook useCallback has a missing dependency: 'processarRelatorios'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+2025-07-03T04:10:45.254Z  
+2025-07-03T04:10:45.254Z  src/components/RelatoriosNew.jsx
+2025-07-03T04:10:45.255Z    Line 30:6:  React Hook useEffect has a missing dependency: 'carregarDados'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+2025-07-03T04:10:45.255Z  
+2025-07-03T04:10:45.255Z  src/components/TendasCultivoRefactored.jsx
+2025-07-03T04:10:45.255Z    Line 7:3:   'Ruler' is defined but never used        no-unused-vars
+2025-07-03T04:10:45.255Z    Line 11:3:  'Thermometer' is defined but never used  no-unused-vars
+2025-07-03T04:10:45.255Z    Line 12:3:  'Droplets' is defined but never used     no-unused-vars
+2025-07-03T04:10:45.255Z  
+2025-07-03T04:10:45.255Z  Search for the keywords to learn more about each warning.
+2025-07-03T04:10:45.256Z  To ignore, add // eslint-disable-next-line to the line before.
+2025-07-03T04:10:45.256Z  
+2025-07-03T04:10:45.256Z  File sizes after gzip:
+2025-07-03T04:10:45.256Z  
+2025-07-03T04:10:45.277Z    271.73 kB  build/static/js/main.0b561f09.js
+2025-07-03T04:10:45.278Z    4.88 kB    build/static/css/main.bdc68ef3.css
+2025-07-03T04:10:45.278Z  
+2025-07-03T04:10:45.278Z  The project was built assuming it is hosted at ./.
+2025-07-03T04:10:45.279Z  You can control this with the homepage field in your package.json.
+2025-07-03T04:10:45.279Z  
+2025-07-03T04:10:45.279Z  The build folder is ready to be deployed.
+2025-07-03T04:10:45.279Z  
+2025-07-03T04:10:45.279Z  Find out more about deployment here:
+2025-07-03T04:10:45.279Z  
+2025-07-03T04:10:45.279Z    https://cra.link/deployment
+2025-07-03T04:10:45.280Z  
+2025-07-03T04:10:45.412Z  Build Completed in /vercel/output [34s]
+2025-07-03T04:10:45.434Z  Deploying outputs...
+2025-07-03T04:10:49.685Z  
+2025-07-03T04:10:49.822Z  Deployment completed

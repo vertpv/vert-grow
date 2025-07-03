@@ -56,7 +56,7 @@ function App() {
     try {
       const hasCompletedOnboarding = await checkOnboardingStatus(userId);
       console.log("App.js: checkUserOnboarding - hasCompletedOnboarding:", hasCompletedOnboarding);
-      setShowOnboarding(!hasCompletedOnboarding);
+      setShowOnboarding(false);
     } catch (error) {
       console.error("App.js: Erro ao verificar onboarding:", error);
       setShowOnboarding(true); // Em caso de erro, mostrar onboarding para garantir que o usuário possa tentar novamente
