@@ -46,8 +46,8 @@ Para configurar o deploy automático, você precisará dos seguintes IDs do Verc
 ### 3. Adicionar Secrets Adicionais
 
 ```
-VERCEL_ORG_ID=cultivo-manager-app
-VERCEL_PROJECT_ID=prj_9EkIJbCW7LAxDKXY66eAAhvtRaNA
+VERCEL_ORG_ID=vert-grow
+VERCEL_PROJECT_ID=prj_7t05sANA32LlAF5Ttl2f0LOBpnnt
 ```
 
 ## 🌐 Deploy Manual via Vercel CLI

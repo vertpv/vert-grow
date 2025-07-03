@@ -11,7 +11,7 @@
 
 ## 🚀 **Demo**
 
-**🌐 Aplicação Online:** [https://cultivo-manager-app.vercel.app/](https://cultivo-manager-app.vercel.app/)
+**🌐 Aplicação Online:** [https://vert-grow.vercel.app/](https://vert-grow.vercel.app/)
 
 ## ✨ **Funcionalidades Principais**
 

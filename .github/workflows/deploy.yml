@@ -30,7 +30,7 @@ jobs:
       uses: vercel/action@v1
       with:
         vercel-token: ${{ secrets.VERCEL_TOKEN }}
-        vercel-org-id: cultivo-manager-app
-        vercel-project-id: prj_9EkIJbCW7LAxDKXY66eAAhvtRaNA
+        vercel-org-id: vert-grow
+        vercel-project-id: prj_7t05sANA32LlAF5Ttl2f0LOBpnnt
         vercel-args: '--prod'
 
