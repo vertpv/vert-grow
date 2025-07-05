@@ -54,6 +54,108 @@ const DashboardOptimized = ({ user, onNavigate }) => {
     };
   }, []);
 
+  // Move function definitions before they are used
+  const generateSuggestedTasks = useCallback((plantas, tendas, plantasComProblemas) => {
+    const tasks = [];
+
+    // Prioridade 1: Alertas críticos
+    if (plantasComProblemas > 0) {
+      tasks.push({
+        id: 'check_problematic_plants',
+        titulo: `${plantasComProblemas} plantas precisam de atenção`,
+        descricao: 'Há mais de 7 dias sem check-in',
+        prioridade: 'high',
+        acao: () => onNavigate('plantas'),
+        icon: AlertTriangle
+      });
+    }
+
+    // Prioridade 2: Setup inicial
+    if (tendas.length === 0) {
+      tasks.push({
+        id: 'setup_first_tent',
+        titulo: 'Configure sua primeira tenda',
+        descricao: 'Defina o espaço de cultivo',
+        prioridade: 'medium',
+        acao: () => onNavigate('tendas'),
+        icon: Building
+      });
+    }
+
+    if (plantas.length === 0 && tendas.length > 0) {
+      tasks.push({
+        id: 'add_first_plant',
+        titulo: 'Adicione sua primeira planta',
+        descricao: 'Comece seu cultivo',
+        prioridade: 'medium',
+        acao: () => onNavigate('plantas'),
+        icon: Sprout
+      });
+    }
+
+    // Prioridade 3: Monitoramento
+    if (plantas.length > 0) {
+      const agora = new Date();
+      const plantasSemCheckinRecente = plantas.filter(planta => {
+        if (!planta.ultimo_checkin) return true;
+        const ultimoCheckin = new Date(planta.ultimo_checkin);
+        const diasSemCheckin = (agora - ultimoCheckin) / (1000 * 60 * 60 * 24);
+        return diasSemCheckin > 3;
+      });
+
+      if (plantasSemCheckinRecente.length > 0) {
+        tasks.push({
+          id: 'daily_checkin',
+          titulo: 'Fazer check-in das plantas',
+          descricao: `${plantasSemCheckinRecente.length} plantas aguardando`,
+          prioridade: 'medium',
+          acao: () => onNavigate('plantas'),
+          icon: CheckCircle
+        });
+      }
+    }
+
+    // Prioridade 4: Otimização
+    if (plantas.length > 0 && tendas.length > 0) {
+      tasks.push({
+        id: 'environmental_monitoring',
+        titulo: 'Registrar dados ambientais',
+        descricao: 'Monitore temperatura e umidade',
+        prioridade: 'low',
+        acao: () => onNavigate('ambiente'),
+        icon: Thermometer
+      });
+    }
+
+    return tasks.slice(0, 5); // Máximo 5 tarefas
+  }, [onNavigate]);
+
+  const generateCriticalAlerts = useCallback((plantas, tendas, plantasComProblemas) => {
+    const alerts = [];
+
+    if (plantasComProblemas > 2) {
+      alerts.push({
+        id: 'multiple_problematic_plants',
+        titulo: 'Múltiplas plantas em risco',
+        descricao: `${plantasComProblemas} plantas sem cuidados há mais de 7 dias`,
+        severity: 'critical',
+        acao: () => onNavigate('relatorios')
+      });
+    }
+
+    if (plantas.length > 0 && tendas.length === 0) {
+      alerts.push({
+        id: 'plants_without_tents',
+        titulo: 'Plantas sem tenda configurada',
+        descricao: 'Configure tendas para organizar melhor',
+        severity: 'warning',
+        acao: () => onNavigate('tendas')
+      });
+    }
+
+    return alerts;
+  }, [onNavigate]);
+
   // Atualizar hora a cada minuto
   useEffect(() => {
     const timer = setInterval(() => {
@@ -206,114 +308,13 @@ const DashboardOptimized = ({ user, onNavigate }) => {
     } finally {
       setLoading(false);
     }
-  }, [user?.id, getAuthHeaders]);
+  }, [user?.id, getAuthHeaders, generateSuggestedTasks, generateCriticalAlerts]);
 
   useEffect(() => {
     if (user?.id) {
       loadStats();
     }
-  }, [user?.id, loadStats, generateCriticalAlerts, generateSuggestedTasks]);
-
-  const generateSuggestedTasks = (plantas, tendas, plantasComProblemas) => {
-    const tasks = [];
-
-    // Prioridade 1: Alertas críticos
-    if (plantasComProblemas > 0) {
-      tasks.push({
-        id: 'check_problematic_plants',
-        titulo: `${plantasComProblemas} plantas precisam de atenção`,
-        descricao: 'Há mais de 7 dias sem check-in',
-        prioridade: 'high',
-        acao: () => onNavigate('plantas'),
-        icon: AlertTriangle
-      });
-    }
-
-    // Prioridade 2: Setup inicial
-    if (tendas.length === 0) {
-      tasks.push({
-        id: 'setup_first_tent',
-        titulo: 'Configure sua primeira tenda',
-        descricao: 'Defina o espaço de cultivo',
-        prioridade: 'medium',
-        acao: () => onNavigate('tendas'),
-        icon: Building
-      });
-    }
-
-    if (plantas.length === 0 && tendas.length > 0) {
-      tasks.push({
-        id: 'add_first_plant',
-        titulo: 'Adicione sua primeira planta',
-        descricao: 'Comece seu cultivo',
-        prioridade: 'medium',
-        acao: () => onNavigate('plantas'),
-        icon: Sprout
-      });
-    }
-
-    // Prioridade 3: Monitoramento
-    if (plantas.length > 0) {
-      const agora = new Date();
-      const plantasSemCheckinRecente = plantas.filter(planta => {
-        if (!planta.ultimo_checkin) return true;
-        const ultimoCheckin = new Date(planta.ultimo_checkin);
-        const diasSemCheckin = (agora - ultimoCheckin) / (1000 * 60 * 60 * 24);
-        return diasSemCheckin > 3;
-      });
-
-      if (plantasSemCheckinRecente.length > 0) {
-        tasks.push({
-          id: 'daily_checkin',
-          titulo: 'Fazer check-in das plantas',
-          descricao: `${plantasSemCheckinRecente.length} plantas aguardando`,
-          prioridade: 'medium',
-          acao: () => onNavigate('plantas'),
-          icon: CheckCircle
-        });
-      }
-    }
-
-    // Prioridade 4: Otimização
-    if (plantas.length > 0 && tendas.length > 0) {
-      tasks.push({
-        id: 'environmental_monitoring',
-        titulo: 'Registrar dados ambientais',
-        descricao: 'Monitore temperatura e umidade',
-        prioridade: 'low',
-        acao: () => onNavigate('ambiente'),
-        icon: Thermometer
-      });
-    }
-
-    return tasks.slice(0, 5); // Máximo 5 tarefas
-  };
-
-  const generateCriticalAlerts = (plantas, tendas, plantasComProblemas) => {
-    const alerts = [];
-
-    if (plantasComProblemas > 2) {
-      alerts.push({
-        id: 'multiple_problematic_plants',
-        titulo: 'Múltiplas plantas em risco',
-        descricao: `${plantasComProblemas} plantas sem cuidados há mais de 7 dias`,
-        severity: 'critical',
-        acao: () => onNavigate('relatorios')
-      });
-    }
-
-    if (plantas.length > 0 && tendas.length === 0) {
-      alerts.push({
-        id: 'plants_without_tents',
-        titulo: 'Plantas sem tenda configurada',
-        descricao: 'Configure tendas para organizar melhor',
-        severity: 'warning',
-        acao: () => onNavigate('tendas')
-      });
-    }
-
-    return alerts;
-  };
+  }, [user?.id, loadStats]);
 
   const getPriorityColor = (priority) => {
     switch (priority) {
@@ -676,4 +677,3 @@ const DashboardOptimized = ({ user, onNavigate }) => {
 };
 
 export default DashboardOptimized;
-
